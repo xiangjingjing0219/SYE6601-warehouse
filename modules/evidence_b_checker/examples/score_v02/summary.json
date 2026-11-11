@@ -1,0 +1,22 @@
+[
+  {
+    "stage": "尚未取得合同",
+    "level": "证据不足",
+    "score": null
+  },
+  {
+    "stage": "补到合同，语义等待审核",
+    "level": "证据不足",
+    "score": null
+  },
+  {
+    "stage": "按示例复核原句，尚无工单",
+    "level": "证据不足",
+    "score": null
+  },
+  {
+    "stage": "补到截止时刻提交的工单",
+    "level": "证据不足",
+    "score": null
+  }
+]

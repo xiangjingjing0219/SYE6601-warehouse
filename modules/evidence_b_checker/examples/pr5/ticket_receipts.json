@@ -1,0 +1,39 @@
+[
+  {
+    "source_type": "TICKET_DB",
+    "customer_id": "C-DEMO",
+    "incident_id": "I-DEMO",
+    "tool_status": "SUCCESS",
+    "records": [
+      {
+        "source_type": "TICKET_DB",
+        "evidence_id": "T-01",
+        "statement": "Verified ticket submission.",
+        "customer_id": "C-DEMO",
+        "incident_id": "I-DEMO",
+        "version": "v1",
+        "effective_from": "2026-01-01T00:00:00Z",
+        "effective_to": "2026-12-31T23:59:59Z",
+        "citation": "synthetic:T-01",
+        "submitted_at": "2026-10-01T12:00:00Z"
+      }
+    ],
+    "pagination_complete": true,
+    "next_page_token": null,
+    "fetched_at": "2026-11-10T00:00:00Z",
+    "cost_units": 1,
+    "error_code": null,
+    "task_id": "DYN-01",
+    "run_id": "3367ca8a-3d4d-4f6a-9d39-7af93780e2f4",
+    "call_id": "tool-6",
+    "elapsed_ms": 0.0,
+    "requested_page": null,
+    "requested_source": "TICKET_DB",
+    "arguments": {
+      "customer_id": "C-DEMO",
+      "incident_id": "I-DEMO",
+      "event_time": "2026-10-01T00:00:00Z",
+      "page_token": null
+    }
+  }
+]

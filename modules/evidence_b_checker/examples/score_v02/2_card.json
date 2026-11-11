@@ -1,0 +1,731 @@
+{
+  "schema_version": "0.2-draft",
+  "scoring_version": "graph-risk-0.2.0",
+  "scoring_policy_version": "graph-risk-demo-0.2",
+  "policy_status": "PROVISIONAL",
+  "task_id": "DEMO-TASK-V2",
+  "run_id": "B-DYN-DEMO",
+  "graph_version": "2",
+  "answer_version": "draft-1",
+  "rules_version": "content-7ef444fc71f5354a",
+  "synthetic_demo": true,
+  "version_consistent": true,
+  "recommendation": "undetermined",
+  "workflow_status": "checking",
+  "stop_reason": null,
+  "level": "证据不足",
+  "level_code": "INSUFFICIENT_EVIDENCE",
+  "level_reasons": [
+    "STRUCTURE_EXPANSION_OPEN: 结构增量仍指向未关闭对象。来自 B 本轮快照的变更记录",
+    "APPLICABILITY_UNDETERMINED: 条件适用性未定，不能移出分母。没有可用的独立语义复核记录",
+    "CRITICAL_RELATION_UNRESOLVED: 语义关系未决，不能用其他已通过节点抵消。没有可用的独立语义复核记录",
+    "CRITICAL_UNEXPANDED: 关键条款已发现但未展开，不能称为条件已齐。没有可用的独立语义复核记录",
+    "SCOPE_UNCLEAR: 影响答案的范围不明（scope:demo）。依据 B 本轮合成覆盖确认记录"
+  ],
+  "score": null,
+  "raw_design_score": 82.61,
+  "display_score_suppressed": true,
+  "score_semantics": "该等级反映已声明范围内的证据与过程质量，不能证明图完整，不能证明已发现全部规则，也不是答案正确概率。",
+  "gate_passed": false,
+  "may_present_definitive_decision": false,
+  "upstream_recommendation_blocked": false,
+  "dimensions": {
+    "baseline_coverage": {
+      "label": "基础必查覆盖",
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0
+    },
+    "claim_coverage": {
+      "label": "答案主张覆盖",
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0
+    },
+    "recognized_conditions": {
+      "label": "已识别条件证据完成",
+      "numerator": 6,
+      "denominator": 7,
+      "value": 0.8571428571428571
+    },
+    "expansion_and_semantics": {
+      "label": "材料展开与语义审核",
+      "numerator": 0,
+      "denominator": 2,
+      "value": 0.0,
+      "unexpanded_count": 1,
+      "critical_unresolved_count": 1
+    },
+    "source_and_query": {
+      "label": "来源适用与查询完整",
+      "numerator": 30,
+      "denominator": 35,
+      "value": 0.8571428571428571,
+      "checks": {
+        "source_allowed": {
+          "passed": 6,
+          "denominator": 7
+        },
+        "scope_valid": {
+          "passed": 6,
+          "denominator": 7
+        },
+        "version_valid": {
+          "passed": 6,
+          "denominator": 7
+        },
+        "time_valid": {
+          "passed": 6,
+          "denominator": 7
+        },
+        "query_sufficient": {
+          "passed": 6,
+          "denominator": 7
+        }
+      }
+    }
+  },
+  "claim_refs": [
+    {
+      "claim_id": "claim:eligible",
+      "statement": "本次合成故障符合补偿资格",
+      "mapped": true,
+      "affects_answer": true,
+      "obligation_ids": [
+        "base:B-CONTRACT",
+        "base:B-IDENTITY",
+        "base:B-RULE",
+        "base:B-PERMISSION",
+        "base:B-DURATION",
+        "base:B-CAUSE",
+        "ob:ticket-deadline"
+      ],
+      "evidence_ids": [],
+      "reason": "以本轮已建入的必要条件核对资格；覆盖范围另列"
+    }
+  ],
+  "condition_refs": [
+    {
+      "obligation_id": "base:B-CONTRACT",
+      "statement": "确认故障当时的适用合同",
+      "status": "SUPPORT",
+      "applicability": "APPLICABLE",
+      "criticality": "critical",
+      "required_for_decision": true,
+      "must_verify": false,
+      "included_in_denominator": true,
+      "resolved": true,
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-CONTRACT"
+      ],
+      "reason_codes": [
+        "CONTRACT_RESOLVED"
+      ],
+      "reason": "已取得唯一适用合同",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "prune_record_id": null,
+      "prune_source": null,
+      "prune_reason": null
+    },
+    {
+      "obligation_id": "base:B-IDENTITY",
+      "statement": "确认客户身份和套餐",
+      "status": "SUPPORT",
+      "applicability": "APPLICABLE",
+      "criticality": "critical",
+      "required_for_decision": true,
+      "must_verify": false,
+      "included_in_denominator": true,
+      "resolved": true,
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-PLAN"
+      ],
+      "reason_codes": [
+        "IDENTITY_RESOLVED"
+      ],
+      "reason": "客户等级和套餐已取得",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "prune_record_id": null,
+      "prune_source": null,
+      "prune_reason": null
+    },
+    {
+      "obligation_id": "base:B-RULE",
+      "statement": "确定适用规则和条款",
+      "status": "SUPPORT",
+      "applicability": "APPLICABLE",
+      "criticality": "critical",
+      "required_for_decision": true,
+      "must_verify": false,
+      "included_in_denominator": true,
+      "resolved": true,
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-CONTRACT",
+        "POLICY:RULE-001"
+      ],
+      "reason_codes": [
+        "RULE_LOCKED"
+      ],
+      "reason": "已锁定规则；专属合同条款优先",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "prune_record_id": null,
+      "prune_source": null,
+      "prune_reason": null
+    },
+    {
+      "obligation_id": "base:B-PERMISSION",
+      "statement": "条款允许本次补偿",
+      "status": "SUPPORT",
+      "applicability": "APPLICABLE",
+      "criticality": "critical",
+      "required_for_decision": true,
+      "must_verify": false,
+      "included_in_denominator": true,
+      "resolved": true,
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-CONTRACT",
+        "POLICY:RULE-001"
+      ],
+      "reason_codes": [
+        "COMPENSATION_TERMS_PRESENT"
+      ],
+      "reason": "已取得明确补偿条件，仍需核实故障事实",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "prune_record_id": null,
+      "prune_source": null,
+      "prune_reason": null
+    },
+    {
+      "obligation_id": "base:B-DURATION",
+      "statement": "有效故障时长达到门槛",
+      "status": "SUPPORT",
+      "applicability": "APPLICABLE",
+      "criticality": "critical",
+      "required_for_decision": true,
+      "must_verify": false,
+      "included_in_denominator": true,
+      "resolved": true,
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-INCIDENT",
+        "Q-MAINTENANCE_CALENDAR",
+        "E-MAINT-1"
+      ],
+      "reason_codes": [
+        "DURATION_THRESHOLD_MET"
+      ],
+      "reason": "总时长90分钟，扣维护40分钟，净时长50分钟，门槛30分钟",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "prune_record_id": null,
+      "prune_source": null,
+      "prune_reason": null
+    },
+    {
+      "obligation_id": "base:B-CAUSE",
+      "statement": "故障原因不属于免责范围",
+      "status": "SUPPORT",
+      "applicability": "APPLICABLE",
+      "criticality": "critical",
+      "required_for_decision": true,
+      "must_verify": false,
+      "included_in_denominator": true,
+      "resolved": true,
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-TICKET",
+        "E-LOG"
+      ],
+      "reason_codes": [
+        "NO_EXCLUDED_CAUSE"
+      ],
+      "reason": "两类资料一致，根因未命中免责清单",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "prune_record_id": null,
+      "prune_source": null,
+      "prune_reason": null
+    },
+    {
+      "obligation_id": "ob:ticket-deadline",
+      "statement": "核对候选工单条件：客户须在故障开始后24小时内提交本次事故的工单（含截止时刻）。",
+      "status": "UNKNOWN",
+      "applicability": "UNDETERMINED",
+      "criticality": "critical",
+      "required_for_decision": true,
+      "must_verify": true,
+      "included_in_denominator": true,
+      "resolved": false,
+      "checks": {
+        "source_allowed": null,
+        "scope_valid": null,
+        "version_valid": null,
+        "time_valid": null,
+        "query_sufficient": null
+      },
+      "evidence_ids": [],
+      "reason_codes": [
+        "UNRESOLVED_SEMANTICS"
+      ],
+      "reason": "没有可用的独立语义复核记录",
+      "applicability_reason": "没有可用的独立语义复核记录",
+      "prune_record_id": null,
+      "prune_source": null,
+      "prune_reason": null
+    }
+  ],
+  "evidence_refs": [
+    {
+      "evidence_id": "E-CONTRACT",
+      "source_type": "CRM_CONTRACT_DB",
+      "citation": "demo://E-CONTRACT"
+    },
+    {
+      "evidence_id": "E-INCIDENT",
+      "source_type": "MONITORING_SYSTEM",
+      "citation": "demo://E-INCIDENT"
+    },
+    {
+      "evidence_id": "E-LOG",
+      "source_type": "BACKEND_LOGS",
+      "citation": "demo://E-LOG"
+    },
+    {
+      "evidence_id": "E-MAINT-1",
+      "source_type": "MAINTENANCE_CALENDAR",
+      "citation": "demo://E-MAINT-1"
+    },
+    {
+      "evidence_id": "E-PLAN",
+      "source_type": "PLAN_DB",
+      "citation": "demo://E-PLAN"
+    },
+    {
+      "evidence_id": "E-TICKET",
+      "source_type": "TICKET_SYSTEM",
+      "citation": "demo://E-TICKET"
+    },
+    {
+      "evidence_id": "POLICY:RULE-001",
+      "source_type": "BUSINESS_RULES",
+      "citation": "A组 rules.json#RULE-001"
+    },
+    {
+      "evidence_id": "Q-MAINTENANCE_CALENDAR",
+      "source_type": "MAINTENANCE_CALENDAR",
+      "citation": "demo://query/MAINTENANCE_CALENDAR"
+    }
+  ],
+  "graph_build_risks": [
+    {
+      "code": "STRUCTURE_EXPANSION_OPEN",
+      "blocking": true,
+      "refs": {
+        "claim_ids": [],
+        "obligation_ids": [
+          "ob:ticket-deadline"
+        ],
+        "evidence_ids": [],
+        "relation_ids": [],
+        "clause_ids": [],
+        "baseline_ids": [],
+        "change_ids": [
+          "change:2:6"
+        ]
+      },
+      "reason": "结构增量仍指向未关闭对象。来自 B 本轮快照的变更记录",
+      "cause": null
+    },
+    {
+      "code": "CRITICAL_RELATION_UNRESOLVED",
+      "blocking": true,
+      "refs": {
+        "claim_ids": [],
+        "obligation_ids": [],
+        "evidence_ids": [],
+        "relation_ids": [
+          "edge:ticket-deadline"
+        ],
+        "clause_ids": [],
+        "baseline_ids": [],
+        "change_ids": []
+      },
+      "reason": "语义关系未决，不能用其他已通过节点抵消。没有可用的独立语义复核记录",
+      "cause": null
+    },
+    {
+      "code": "CRITICAL_UNEXPANDED",
+      "blocking": true,
+      "refs": {
+        "claim_ids": [],
+        "obligation_ids": [],
+        "evidence_ids": [
+          "E-CONTRACT"
+        ],
+        "relation_ids": [],
+        "clause_ids": [
+          "clause:ticket-deadline"
+        ],
+        "baseline_ids": [],
+        "change_ids": []
+      },
+      "reason": "关键条款已发现但未展开，不能称为条件已齐。没有可用的独立语义复核记录",
+      "cause": null
+    },
+    {
+      "code": "SCOPE_UNCLEAR",
+      "blocking": true,
+      "refs": {
+        "claim_ids": [],
+        "obligation_ids": [],
+        "evidence_ids": [],
+        "relation_ids": [],
+        "clause_ids": [],
+        "baseline_ids": [],
+        "change_ids": []
+      },
+      "reason": "影响答案的范围不明（scope:demo）。依据 B 本轮合成覆盖确认记录",
+      "cause": null
+    }
+  ],
+  "residual_gaps": [
+    {
+      "obligation_id": "ob:ticket-deadline",
+      "status": "UNKNOWN",
+      "criticality": "critical",
+      "reason_codes": [
+        "UNRESOLVED_SEMANTICS"
+      ],
+      "reason": "没有可用的独立语义复核记录",
+      "cause": null,
+      "pruned": false,
+      "prune_source": null,
+      "prune_reason": null,
+      "evidence_ids": []
+    }
+  ],
+  "reservations": [],
+  "repair_actions": [],
+  "structure_changes": [
+    {
+      "change_id": "change:2:0",
+      "kind": "revised",
+      "object_type": "obligation",
+      "object_id": "base:B-CONTRACT",
+      "statement": "审核对象更新：base:B-CONTRACT",
+      "trigger_evidence_ids": [
+        "E-CONTRACT"
+      ],
+      "from_graph_version": "1",
+      "to_graph_version": "2",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    },
+    {
+      "change_id": "change:2:1",
+      "kind": "revised",
+      "object_type": "obligation",
+      "object_id": "base:B-IDENTITY",
+      "statement": "审核对象更新：base:B-IDENTITY",
+      "trigger_evidence_ids": [
+        "E-PLAN"
+      ],
+      "from_graph_version": "1",
+      "to_graph_version": "2",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    },
+    {
+      "change_id": "change:2:2",
+      "kind": "revised",
+      "object_type": "obligation",
+      "object_id": "base:B-RULE",
+      "statement": "审核对象更新：base:B-RULE",
+      "trigger_evidence_ids": [
+        "E-CONTRACT",
+        "POLICY:RULE-001"
+      ],
+      "from_graph_version": "1",
+      "to_graph_version": "2",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    },
+    {
+      "change_id": "change:2:3",
+      "kind": "revised",
+      "object_type": "obligation",
+      "object_id": "base:B-PERMISSION",
+      "statement": "审核对象更新：base:B-PERMISSION",
+      "trigger_evidence_ids": [
+        "E-CONTRACT",
+        "POLICY:RULE-001"
+      ],
+      "from_graph_version": "1",
+      "to_graph_version": "2",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    },
+    {
+      "change_id": "change:2:4",
+      "kind": "revised",
+      "object_type": "obligation",
+      "object_id": "base:B-DURATION",
+      "statement": "审核对象更新：base:B-DURATION",
+      "trigger_evidence_ids": [
+        "E-INCIDENT",
+        "Q-MAINTENANCE_CALENDAR",
+        "E-MAINT-1"
+      ],
+      "from_graph_version": "1",
+      "to_graph_version": "2",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    },
+    {
+      "change_id": "change:2:5",
+      "kind": "revised",
+      "object_type": "obligation",
+      "object_id": "base:B-CAUSE",
+      "statement": "审核对象更新：base:B-CAUSE",
+      "trigger_evidence_ids": [
+        "E-TICKET",
+        "E-LOG"
+      ],
+      "from_graph_version": "1",
+      "to_graph_version": "2",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    },
+    {
+      "change_id": "change:2:6",
+      "kind": "added",
+      "object_type": "obligation",
+      "object_id": "ob:ticket-deadline",
+      "statement": "审核对象更新：ob:ticket-deadline",
+      "trigger_evidence_ids": [],
+      "from_graph_version": "1",
+      "to_graph_version": "2",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    },
+    {
+      "change_id": "change:2:7",
+      "kind": "added",
+      "object_type": "relation",
+      "object_id": "edge:ticket-deadline",
+      "statement": "审核对象更新：edge:ticket-deadline",
+      "trigger_evidence_ids": [
+        "E-CONTRACT"
+      ],
+      "from_graph_version": "1",
+      "to_graph_version": "2",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    }
+  ],
+  "advice_change_notes": [
+    "结构变化 change:2:0：修订条件 base:B-CONTRACT。审核对象更新：base:B-CONTRACT来自 B 本轮快照的变更记录上游记录的建议变化：undetermined → undetermined。当前证据链 B 将该条件记为 SUPPORT。新条件如何改变建议以上游记录的建议变化为准。",
+    "结构变化 change:2:1：修订条件 base:B-IDENTITY。审核对象更新：base:B-IDENTITY来自 B 本轮快照的变更记录上游记录的建议变化：undetermined → undetermined。当前证据链 B 将该条件记为 SUPPORT。新条件如何改变建议以上游记录的建议变化为准。",
+    "结构变化 change:2:2：修订条件 base:B-RULE。审核对象更新：base:B-RULE来自 B 本轮快照的变更记录上游记录的建议变化：undetermined → undetermined。当前证据链 B 将该条件记为 SUPPORT。新条件如何改变建议以上游记录的建议变化为准。",
+    "结构变化 change:2:3：修订条件 base:B-PERMISSION。审核对象更新：base:B-PERMISSION来自 B 本轮快照的变更记录上游记录的建议变化：undetermined → undetermined。当前证据链 B 将该条件记为 SUPPORT。新条件如何改变建议以上游记录的建议变化为准。",
+    "结构变化 change:2:4：修订条件 base:B-DURATION。审核对象更新：base:B-DURATION来自 B 本轮快照的变更记录上游记录的建议变化：undetermined → undetermined。当前证据链 B 将该条件记为 SUPPORT。新条件如何改变建议以上游记录的建议变化为准。",
+    "结构变化 change:2:5：修订条件 base:B-CAUSE。审核对象更新：base:B-CAUSE来自 B 本轮快照的变更记录上游记录的建议变化：undetermined → undetermined。当前证据链 B 将该条件记为 SUPPORT。新条件如何改变建议以上游记录的建议变化为准。",
+    "结构变化 change:2:6：新增条件 ob:ticket-deadline。审核对象更新：ob:ticket-deadline来自 B 本轮快照的变更记录上游记录的建议变化：undetermined → undetermined。当前证据链 B 将该条件记为 UNKNOWN，取得并校验前不能给出确定建议。",
+    "结构变化 change:2:7：新增关系 edge:ticket-deadline。审核对象更新：edge:ticket-deadline来自 B 本轮快照的变更记录上游记录的建议变化：undetermined → undetermined。"
+  ],
+  "human_review_order": [
+    {
+      "code": "STRUCTURE_EXPANSION_OPEN",
+      "blocking": true,
+      "priority": 15,
+      "reason": "结构增量仍指向未关闭对象。来自 B 本轮快照的变更记录",
+      "cause": null,
+      "repair_action": null,
+      "refs": {
+        "claim_ids": [],
+        "obligation_ids": [
+          "ob:ticket-deadline"
+        ],
+        "evidence_ids": [],
+        "relation_ids": [],
+        "clause_ids": [],
+        "baseline_ids": [],
+        "change_ids": [
+          "change:2:6"
+        ]
+      },
+      "order": 1
+    },
+    {
+      "code": "APPLICABILITY_UNDETERMINED",
+      "blocking": true,
+      "priority": 25,
+      "reason": "条件适用性未定，不能移出分母。没有可用的独立语义复核记录",
+      "cause": null,
+      "repair_action": null,
+      "refs": {
+        "claim_ids": [],
+        "obligation_ids": [
+          "ob:ticket-deadline"
+        ],
+        "evidence_ids": [],
+        "relation_ids": [],
+        "clause_ids": [],
+        "baseline_ids": [],
+        "change_ids": []
+      },
+      "order": 2
+    },
+    {
+      "code": "CRITICAL_RELATION_UNRESOLVED",
+      "blocking": true,
+      "priority": 30,
+      "reason": "语义关系未决，不能用其他已通过节点抵消。没有可用的独立语义复核记录",
+      "cause": null,
+      "repair_action": null,
+      "refs": {
+        "claim_ids": [],
+        "obligation_ids": [],
+        "evidence_ids": [],
+        "relation_ids": [
+          "edge:ticket-deadline"
+        ],
+        "clause_ids": [],
+        "baseline_ids": [],
+        "change_ids": []
+      },
+      "order": 3
+    },
+    {
+      "code": "CRITICAL_UNEXPANDED",
+      "blocking": true,
+      "priority": 40,
+      "reason": "关键条款已发现但未展开，不能称为条件已齐。没有可用的独立语义复核记录",
+      "cause": null,
+      "repair_action": null,
+      "refs": {
+        "claim_ids": [],
+        "obligation_ids": [],
+        "evidence_ids": [
+          "E-CONTRACT"
+        ],
+        "relation_ids": [],
+        "clause_ids": [
+          "clause:ticket-deadline"
+        ],
+        "baseline_ids": [],
+        "change_ids": []
+      },
+      "order": 4
+    },
+    {
+      "code": "SCOPE_UNCLEAR",
+      "blocking": true,
+      "priority": 50,
+      "reason": "影响答案的范围不明（scope:demo）。依据 B 本轮合成覆盖确认记录",
+      "cause": null,
+      "repair_action": null,
+      "refs": {
+        "claim_ids": [],
+        "obligation_ids": [],
+        "evidence_ids": [],
+        "relation_ids": [],
+        "clause_ids": [],
+        "baseline_ids": [],
+        "change_ids": []
+      },
+      "order": 5
+    }
+  ],
+  "scope_declaration": {
+    "scope_id": "scope:demo",
+    "statement": "草案：旧 Checker 加同一事故申报时限；资格建议限经覆盖确认的合成案例",
+    "covers": [
+      "DYN-01"
+    ],
+    "known_limits": [
+      "没有 A 的正式必查全集或对实际答案的映射，仅核对 B 的合成主张。"
+    ],
+    "affects_answer": true,
+    "status": "unclear",
+    "reason": "依据 B 本轮合成覆盖确认记录"
+  },
+  "notes": [
+    "该等级反映已声明范围内的证据与过程质量，不能证明图完整，不能证明已发现全部规则，也不是答案正确概率。",
+    "四态、审核状态、必查覆盖、剪枝理由与结构增量均消费上游声明；评分器不重新判定证据，也不读取评测 gold。",
+    "SUPPORT 与 REFUTE 都表示该条件已判定。具备资格的否定证据可以对应已建模范围内证据充分。",
+    "硬门槛先于设计分。证据不足时默认不展示总分。",
+    "这里的说明是模板，只复述已记录原因。",
+    "硬门槛同时阻断无依据的肯定建议和否定建议，不只阻断建议补偿。"
+  ]
+}

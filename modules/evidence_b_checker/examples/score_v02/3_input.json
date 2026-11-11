@@ -1,0 +1,363 @@
+{
+  "schema_version": "0.2-draft",
+  "task_id": "DEMO-TASK-V2",
+  "run_id": "B-DYN-DEMO",
+  "graph_version": "3",
+  "answer_version": "draft-1",
+  "answer_binding": {
+    "task_id": "DEMO-TASK-V2",
+    "run_id": "B-DYN-DEMO",
+    "graph_version": "3",
+    "answer_version": "draft-1"
+  },
+  "rules_version": "content-7ef444fc71f5354a",
+  "synthetic_demo": true,
+  "recommendation": "undetermined",
+  "workflow_status": "checking",
+  "stop_reason": null,
+  "baseline_checks": [
+    {
+      "check_id": "baseline:contract",
+      "statement": "核对适用专属合同",
+      "required": true,
+      "built": true,
+      "status": "COMPLETE",
+      "obligation_ids": [
+        "base:B-CONTRACT"
+      ],
+      "reason_codes": [],
+      "reason": "按本轮合同核查状态记录",
+      "repair_action": null
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "claim:eligible",
+      "statement": "本次合成故障符合补偿资格",
+      "mapped": true,
+      "obligation_ids": [
+        "base:B-CONTRACT",
+        "base:B-IDENTITY",
+        "base:B-RULE",
+        "base:B-PERMISSION",
+        "base:B-DURATION",
+        "base:B-CAUSE",
+        "ob:ticket-deadline"
+      ],
+      "evidence_ids": [],
+      "affects_answer": true,
+      "reason": "以本轮已建入的必要条件核对资格；覆盖范围另列"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation_id": "base:B-CONTRACT",
+      "statement": "确认故障当时的适用合同",
+      "applicability": "APPLICABLE",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "required_for_decision": true,
+      "must_verify": false,
+      "status": "SUPPORT",
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-CONTRACT"
+      ],
+      "reason_codes": [
+        "CONTRACT_RESOLVED"
+      ],
+      "reason": "已取得唯一适用合同",
+      "rule_id": "RULE-001",
+      "criticality": "critical",
+      "prune": null,
+      "repair_action": null
+    },
+    {
+      "obligation_id": "base:B-IDENTITY",
+      "statement": "确认客户身份和套餐",
+      "applicability": "APPLICABLE",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "required_for_decision": true,
+      "must_verify": false,
+      "status": "SUPPORT",
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-PLAN"
+      ],
+      "reason_codes": [
+        "IDENTITY_RESOLVED"
+      ],
+      "reason": "客户等级和套餐已取得",
+      "rule_id": "RULE-001",
+      "criticality": "critical",
+      "prune": null,
+      "repair_action": null
+    },
+    {
+      "obligation_id": "base:B-RULE",
+      "statement": "确定适用规则和条款",
+      "applicability": "APPLICABLE",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "required_for_decision": true,
+      "must_verify": false,
+      "status": "SUPPORT",
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-CONTRACT",
+        "POLICY:RULE-001"
+      ],
+      "reason_codes": [
+        "RULE_LOCKED"
+      ],
+      "reason": "已锁定规则；专属合同条款优先",
+      "rule_id": "RULE-001",
+      "criticality": "critical",
+      "prune": null,
+      "repair_action": null
+    },
+    {
+      "obligation_id": "base:B-PERMISSION",
+      "statement": "条款允许本次补偿",
+      "applicability": "APPLICABLE",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "required_for_decision": true,
+      "must_verify": false,
+      "status": "SUPPORT",
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-CONTRACT",
+        "POLICY:RULE-001"
+      ],
+      "reason_codes": [
+        "COMPENSATION_TERMS_PRESENT"
+      ],
+      "reason": "已取得明确补偿条件，仍需核实故障事实",
+      "rule_id": "RULE-001",
+      "criticality": "critical",
+      "prune": null,
+      "repair_action": null
+    },
+    {
+      "obligation_id": "base:B-DURATION",
+      "statement": "有效故障时长达到门槛",
+      "applicability": "APPLICABLE",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "required_for_decision": true,
+      "must_verify": false,
+      "status": "SUPPORT",
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-INCIDENT",
+        "Q-MAINTENANCE_CALENDAR",
+        "E-MAINT-1"
+      ],
+      "reason_codes": [
+        "DURATION_THRESHOLD_MET"
+      ],
+      "reason": "总时长90分钟，扣维护40分钟，净时长50分钟，门槛30分钟",
+      "rule_id": "RULE-001",
+      "criticality": "critical",
+      "prune": null,
+      "repair_action": null
+    },
+    {
+      "obligation_id": "base:B-CAUSE",
+      "statement": "故障原因不属于免责范围",
+      "applicability": "APPLICABLE",
+      "applicability_reason": "当前补偿流程中的检查项；未知与跳过均保留，不冒充不适用。",
+      "required_for_decision": true,
+      "must_verify": false,
+      "status": "SUPPORT",
+      "checks": {
+        "source_allowed": true,
+        "scope_valid": true,
+        "version_valid": true,
+        "time_valid": true,
+        "query_sufficient": true
+      },
+      "evidence_ids": [
+        "E-TICKET",
+        "E-LOG"
+      ],
+      "reason_codes": [
+        "NO_EXCLUDED_CAUSE"
+      ],
+      "reason": "两类资料一致，根因未命中免责清单",
+      "rule_id": "RULE-001",
+      "criticality": "critical",
+      "prune": null,
+      "repair_action": null
+    },
+    {
+      "obligation_id": "ob:ticket-deadline",
+      "rule_id": "demo:ticket-deadline",
+      "statement": "核对候选工单条件：客户须在故障开始后24小时内提交本次事故的工单（含截止时刻）。",
+      "applicability": "APPLICABLE",
+      "applicability_reason": "合成原句明确从故障开始计24小时，包含截止时刻。",
+      "criticality": "critical",
+      "required_for_decision": true,
+      "must_verify": true,
+      "status": "UNKNOWN",
+      "checks": {
+        "source_allowed": null,
+        "scope_valid": null,
+        "version_valid": null,
+        "time_valid": null,
+        "query_sufficient": null
+      },
+      "evidence_ids": [],
+      "reason_codes": [
+        "MISSING_EVIDENCE"
+      ],
+      "reason": "尚无法核实是否按时申报",
+      "prune": null,
+      "repair_action": null
+    }
+  ],
+  "clauses": [
+    {
+      "clause_id": "clause:ticket-deadline",
+      "source_evidence_id": "E-CONTRACT",
+      "statement": "客户须在故障开始后24小时内提交本次事故的工单（含截止时刻）。",
+      "expanded": true,
+      "critical": true,
+      "reason_codes": [],
+      "reason": "合成原句明确从故障开始计24小时，包含截止时刻。",
+      "prune": null,
+      "repair_action": null
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "edge:ticket-deadline",
+      "relation_type": "depends_on",
+      "subject_id": "claim:eligible",
+      "object_id": "ob:ticket-deadline",
+      "review_status": "accepted",
+      "critical": true,
+      "reason": "合成原句明确从故障开始计24小时，包含截止时刻。",
+      "prune": null,
+      "repair_action": null
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "change:3:0",
+      "kind": "revised",
+      "object_type": "obligation",
+      "object_id": "ob:ticket-deadline",
+      "statement": "审核对象更新：ob:ticket-deadline",
+      "trigger_evidence_ids": [],
+      "from_graph_version": "2",
+      "to_graph_version": "3",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    },
+    {
+      "change_id": "change:3:1",
+      "kind": "revised",
+      "object_type": "relation",
+      "object_id": "edge:ticket-deadline",
+      "statement": "审核对象更新：edge:ticket-deadline",
+      "trigger_evidence_ids": [
+        "E-CONTRACT"
+      ],
+      "from_graph_version": "2",
+      "to_graph_version": "3",
+      "affected_claim_ids": [
+        "claim:eligible"
+      ],
+      "from_recommendation": "undetermined",
+      "to_recommendation": "undetermined",
+      "explanation": "来自 B 本轮快照的变更记录"
+    }
+  ],
+  "scope_declaration": {
+    "scope_id": "scope:demo",
+    "statement": "草案：旧 Checker 加同一事故申报时限；资格建议限经覆盖确认的合成案例",
+    "covers": [
+      "DYN-01"
+    ],
+    "known_limits": [
+      "没有 A 的正式必查全集或对实际答案的映射，仅核对 B 的合成主张。"
+    ],
+    "affects_answer": false,
+    "status": "declared",
+    "reason": "依据 B 本轮合成覆盖确认记录"
+  },
+  "evidence": [
+    {
+      "evidence_id": "E-CONTRACT",
+      "source_type": "CRM_CONTRACT_DB",
+      "citation": "demo://E-CONTRACT"
+    },
+    {
+      "evidence_id": "E-INCIDENT",
+      "source_type": "MONITORING_SYSTEM",
+      "citation": "demo://E-INCIDENT"
+    },
+    {
+      "evidence_id": "E-LOG",
+      "source_type": "BACKEND_LOGS",
+      "citation": "demo://E-LOG"
+    },
+    {
+      "evidence_id": "E-MAINT-1",
+      "source_type": "MAINTENANCE_CALENDAR",
+      "citation": "demo://E-MAINT-1"
+    },
+    {
+      "evidence_id": "E-PLAN",
+      "source_type": "PLAN_DB",
+      "citation": "demo://E-PLAN"
+    },
+    {
+      "evidence_id": "E-TICKET",
+      "source_type": "TICKET_SYSTEM",
+      "citation": "demo://E-TICKET"
+    },
+    {
+      "evidence_id": "POLICY:RULE-001",
+      "source_type": "BUSINESS_RULES",
+      "citation": "A组 rules.json#RULE-001"
+    },
+    {
+      "evidence_id": "Q-MAINTENANCE_CALENDAR",
+      "source_type": "MAINTENANCE_CALENDAR",
+      "citation": "demo://query/MAINTENANCE_CALENDAR"
+    }
+  ]
+}

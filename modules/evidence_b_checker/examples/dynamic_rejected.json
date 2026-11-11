@@ -1,0 +1,331 @@
+{
+  "input_binding": "4a1cf6a8df25cf01ae753ab0103620576122423eb7414c3f2805a6a942a30a7b",
+  "task_id": "DEMO-TASK-V2",
+  "run_id": "B-DYN-DEMO",
+  "customer_id": "C001",
+  "incident_id": "INC-001",
+  "scope": "CLOUD_SERVER",
+  "event_time": "2026-06-01T10:00:00Z",
+  "identity": {
+    "task_id": "DEMO-TASK-V2",
+    "run_id": "B-DYN-DEMO",
+    "customer_id": "C001",
+    "incident_id": "INC-001",
+    "scope": "CLOUD_SERVER",
+    "event_time": "2026-06-01T10:00:00Z"
+  },
+  "answer_version": "draft-1",
+  "graph_version": 1,
+  "nodes": [
+    {
+      "id": "claim:eligible",
+      "type": "claim",
+      "state": "UNKNOWN"
+    },
+    {
+      "id": "base:B-CONTRACT",
+      "type": "obligation",
+      "state": "SUPPORT",
+      "evidence_ids": [
+        "E-CONTRACT"
+      ]
+    },
+    {
+      "id": "base:B-IDENTITY",
+      "type": "obligation",
+      "state": "SUPPORT",
+      "evidence_ids": [
+        "E-PLAN"
+      ]
+    },
+    {
+      "id": "base:B-RULE",
+      "type": "obligation",
+      "state": "SUPPORT",
+      "evidence_ids": [
+        "E-CONTRACT",
+        "POLICY:RULE-001"
+      ]
+    },
+    {
+      "id": "base:B-PERMISSION",
+      "type": "obligation",
+      "state": "SUPPORT",
+      "evidence_ids": [
+        "E-CONTRACT",
+        "POLICY:RULE-001"
+      ]
+    },
+    {
+      "id": "base:B-DURATION",
+      "type": "obligation",
+      "state": "SUPPORT",
+      "evidence_ids": [
+        "E-INCIDENT",
+        "Q-MAINTENANCE_CALENDAR",
+        "E-MAINT-1"
+      ]
+    },
+    {
+      "id": "base:B-CAUSE",
+      "type": "obligation",
+      "state": "SUPPORT",
+      "evidence_ids": [
+        "E-TICKET",
+        "E-LOG"
+      ]
+    },
+    {
+      "id": "ob:ticket-deadline",
+      "type": "obligation",
+      "state": "UNKNOWN",
+      "review_status": "rejected"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:ticket-deadline",
+      "source": "claim:eligible",
+      "target": "ob:ticket-deadline",
+      "type": "depends_on",
+      "review_status": "rejected",
+      "active": false
+    }
+  ],
+  "gaps": [
+    {
+      "type": "UNRESOLVED_SEMANTICS",
+      "object_id": "ticket-deadline",
+      "affected_claims": [
+        "claim:eligible"
+      ],
+      "critical": true,
+      "must_verify": true,
+      "target_source": "CRM_CONTRACT_DB",
+      "reason": "无法在指定条款定位完整引用"
+    },
+    {
+      "type": "MISSING_DEPENDENCY",
+      "object_id": "claim:eligible",
+      "affected_claims": [
+        "claim:eligible"
+      ],
+      "critical": true,
+      "must_verify": true,
+      "target_source": "合同复核",
+      "reason": "未确认候选条件是否覆盖本次合同"
+    }
+  ],
+  "checks": [
+    {
+      "object_id": "ticket-deadline",
+      "check_type": "semantic_relation",
+      "review_status": "rejected",
+      "reason": "无法在指定条款定位完整引用",
+      "citation": {
+        "source_id": "CRM_CONTRACT_DB",
+        "record_id": "E-CONTRACT",
+        "locator": "不存在的条款",
+        "excerpt": "客户须在故障开始后24小时内提交本次事故的工单（含截止时刻）。",
+        "call_id": "Q-CRM_CONTRACT_DB"
+      },
+      "evidence_used": [],
+      "assessment": null,
+      "time_comparison": "UNKNOWN",
+      "version_review": null
+    }
+  ],
+  "changes": [
+    {
+      "object_id": "claim:eligible",
+      "old": null,
+      "new": {
+        "id": "claim:eligible",
+        "type": "claim",
+        "state": "UNKNOWN"
+      },
+      "old_version": 0,
+      "new_version": 1,
+      "affected_claims": [
+        "claim:eligible"
+      ]
+    },
+    {
+      "object_id": "base:B-CONTRACT",
+      "old": null,
+      "new": {
+        "id": "base:B-CONTRACT",
+        "type": "obligation",
+        "state": "SUPPORT",
+        "evidence_ids": [
+          "E-CONTRACT"
+        ]
+      },
+      "old_version": 0,
+      "new_version": 1,
+      "affected_claims": [
+        "claim:eligible"
+      ]
+    },
+    {
+      "object_id": "base:B-IDENTITY",
+      "old": null,
+      "new": {
+        "id": "base:B-IDENTITY",
+        "type": "obligation",
+        "state": "SUPPORT",
+        "evidence_ids": [
+          "E-PLAN"
+        ]
+      },
+      "old_version": 0,
+      "new_version": 1,
+      "affected_claims": [
+        "claim:eligible"
+      ]
+    },
+    {
+      "object_id": "base:B-RULE",
+      "old": null,
+      "new": {
+        "id": "base:B-RULE",
+        "type": "obligation",
+        "state": "SUPPORT",
+        "evidence_ids": [
+          "E-CONTRACT",
+          "POLICY:RULE-001"
+        ]
+      },
+      "old_version": 0,
+      "new_version": 1,
+      "affected_claims": [
+        "claim:eligible"
+      ]
+    },
+    {
+      "object_id": "base:B-PERMISSION",
+      "old": null,
+      "new": {
+        "id": "base:B-PERMISSION",
+        "type": "obligation",
+        "state": "SUPPORT",
+        "evidence_ids": [
+          "E-CONTRACT",
+          "POLICY:RULE-001"
+        ]
+      },
+      "old_version": 0,
+      "new_version": 1,
+      "affected_claims": [
+        "claim:eligible"
+      ]
+    },
+    {
+      "object_id": "base:B-DURATION",
+      "old": null,
+      "new": {
+        "id": "base:B-DURATION",
+        "type": "obligation",
+        "state": "SUPPORT",
+        "evidence_ids": [
+          "E-INCIDENT",
+          "Q-MAINTENANCE_CALENDAR",
+          "E-MAINT-1"
+        ]
+      },
+      "old_version": 0,
+      "new_version": 1,
+      "affected_claims": [
+        "claim:eligible"
+      ]
+    },
+    {
+      "object_id": "base:B-CAUSE",
+      "old": null,
+      "new": {
+        "id": "base:B-CAUSE",
+        "type": "obligation",
+        "state": "SUPPORT",
+        "evidence_ids": [
+          "E-TICKET",
+          "E-LOG"
+        ]
+      },
+      "old_version": 0,
+      "new_version": 1,
+      "affected_claims": [
+        "claim:eligible"
+      ]
+    },
+    {
+      "object_id": "ob:ticket-deadline",
+      "old": null,
+      "new": {
+        "id": "ob:ticket-deadline",
+        "type": "obligation",
+        "state": "UNKNOWN",
+        "review_status": "rejected"
+      },
+      "old_version": 0,
+      "new_version": 1,
+      "affected_claims": [
+        "claim:eligible"
+      ]
+    },
+    {
+      "object_id": "edge:ticket-deadline",
+      "old_version": 0,
+      "new_version": 1,
+      "trigger": {
+        "source_id": "CRM_CONTRACT_DB",
+        "record_id": "E-CONTRACT",
+        "locator": "不存在的条款",
+        "excerpt": "客户须在故障开始后24小时内提交本次事故的工单（含截止时刻）。",
+        "call_id": "Q-CRM_CONTRACT_DB"
+      },
+      "old": null,
+      "new": {
+        "object_id": "ticket-deadline",
+        "check_type": "semantic_relation",
+        "review_status": "rejected",
+        "reason": "无法在指定条款定位完整引用",
+        "citation": {
+          "source_id": "CRM_CONTRACT_DB",
+          "record_id": "E-CONTRACT",
+          "locator": "不存在的条款",
+          "excerpt": "客户须在故障开始后24小时内提交本次事故的工单（含截止时刻）。",
+          "call_id": "Q-CRM_CONTRACT_DB"
+        },
+        "evidence_used": [],
+        "assessment": null,
+        "time_comparison": "UNKNOWN",
+        "version_review": null
+      },
+      "affected_claims": [
+        "claim:eligible"
+      ]
+    }
+  ],
+  "candidates": {
+    "ticket-deadline": {
+      "id": "ticket-deadline",
+      "target": "claim:eligible",
+      "relation": "depends_on",
+      "expression": {
+        "kind": "ticket_within_hours",
+        "hours": 24
+      },
+      "citation": {
+        "source_id": "CRM_CONTRACT_DB",
+        "record_id": "E-CONTRACT",
+        "locator": "不存在的条款",
+        "excerpt": "客户须在故障开始后24小时内提交本次事故的工单（含截止时刻）。",
+        "call_id": "Q-CRM_CONTRACT_DB"
+      }
+    }
+  },
+  "scope_declaration": "草案：旧 Checker 加同一事故申报时限；资格建议限经覆盖确认的合成案例",
+  "recommendation": "undetermined",
+  "workflow_status": "checking",
+  "baseline_decision": true
+}

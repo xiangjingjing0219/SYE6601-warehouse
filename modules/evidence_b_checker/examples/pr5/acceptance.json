@@ -1,0 +1,297 @@
+{
+  "accepted": [
+    {
+      "mode": "replay",
+      "check": {
+        "record_id": "P-THRESHOLD",
+        "kind": "duration_min",
+        "value": 60,
+        "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+        "review_status": "accepted",
+        "reason": "The excerpt explicitly states a minimum outage duration of 60 minutes, which directly maps to the duration_min parameter.",
+        "source_type": "POLICY_DB",
+        "checker_b_audit": {
+          "object_id": "review:P-THRESHOLD:duration_min:0",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "POLICY_DB",
+            "record_id": "P-THRESHOLD",
+            "locator": "synthetic:P-THRESHOLD",
+            "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+            "call_id": "tool-1"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      },
+      "model_reviews": [
+        {
+          "call_id": "model-2",
+          "model": "qwen/qwen3.6-35b-a3b",
+          "raw_output": "{\n\"verdict\": \"accepted\",\n\"reason\": \"The excerpt explicitly states a minimum outage duration of 60 minutes, which directly maps to the duration_min parameter.\"\n}"
+        }
+      ]
+    },
+    {
+      "mode": "replay",
+      "check": {
+        "record_id": "C-DEADLINE",
+        "kind": "ticket_deadline_hours",
+        "value": 24,
+        "excerpt": "A ticket must be submitted within 24 hours after the incident.",
+        "review_status": "accepted",
+        "reason": "The payload explicitly states a mandatory ticket submission deadline of 24 hours after the incident, which matches the definition for ticket_deadline_hours.",
+        "source_type": "CRM_CONTRACT_DB",
+        "checker_b_audit": {
+          "object_id": "review:C-DEADLINE:ticket_deadline_hours:1",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "CRM_CONTRACT_DB",
+            "record_id": "C-DEADLINE",
+            "locator": "synthetic:C-DEADLINE",
+            "excerpt": "A ticket must be submitted within 24 hours after the incident.",
+            "call_id": "tool-5"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      },
+      "model_reviews": [
+        {
+          "call_id": "model-4",
+          "model": "qwen/qwen3.6-35b-a3b",
+          "raw_output": "{\"verdict\":\"accepted\",\"reason\":\"The payload explicitly states a mandatory ticket submission deadline of 24 hours after the incident, which matches the definition for ticket_deadline_hours.\"}"
+        }
+      ]
+    },
+    {
+      "mode": "replay",
+      "check": {
+        "record_id": "C-THRESHOLD",
+        "kind": "duration_min",
+        "value": 90,
+        "excerpt": "The incident must last at least 90 minutes.",
+        "review_status": "accepted",
+        "reason": "The excerpt explicitly states a minimum duration of 90 minutes, which directly maps to the duration_min field with the correct value and unit.",
+        "source_type": "CRM_CONTRACT_DB",
+        "checker_b_audit": {
+          "object_id": "review:C-THRESHOLD:duration_min:2",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "CRM_CONTRACT_DB",
+            "record_id": "C-THRESHOLD",
+            "locator": "synthetic:C-THRESHOLD",
+            "excerpt": "The incident must last at least 90 minutes.",
+            "call_id": "tool-5"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      },
+      "model_reviews": [
+        {
+          "call_id": "model-5",
+          "model": "qwen/qwen3.6-35b-a3b",
+          "raw_output": "{\"verdict\":\"accepted\",\"reason\":\"The excerpt explicitly states a minimum duration of 90 minutes, which directly maps to the duration_min field with the correct value and unit.\"}"
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "mode": "simulated",
+      "check": {
+        "record_id": "P-THRESHOLD",
+        "kind": "duration_min",
+        "value": 60,
+        "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+        "review_status": "accepted",
+        "reason": "Simulated interface fixture",
+        "source_type": "POLICY_DB",
+        "checker_b_audit": {
+          "object_id": "review:P-THRESHOLD:duration_min:0",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "POLICY_DB",
+            "record_id": "P-THRESHOLD",
+            "locator": "synthetic:P-THRESHOLD",
+            "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+            "call_id": "tool-1"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      },
+      "model_reviews": [
+        {
+          "call_id": "model-2",
+          "model": "fixture",
+          "raw_output": "{\"verdict\": \"accepted\", \"reason\": \"Simulated interface fixture\"}"
+        }
+      ]
+    },
+    {
+      "mode": "simulated",
+      "check": {
+        "record_id": "C-DEADLINE",
+        "kind": "duration_min",
+        "value": 24,
+        "excerpt": "A ticket must be submitted within 24 hours after the incident.",
+        "review_status": "rejected",
+        "reason": "value or unit does not match excerpt",
+        "checker_b_audit": {
+          "object_id": "review:C-DEADLINE:duration_min:1",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "CRM_CONTRACT_DB",
+            "record_id": "C-DEADLINE",
+            "locator": "synthetic:C-DEADLINE",
+            "excerpt": "A ticket must be submitted within 24 hours after the incident.",
+            "call_id": "tool-5"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      },
+      "model_reviews": []
+    },
+    {
+      "mode": "simulated",
+      "check": {
+        "record_id": "C-THRESHOLD",
+        "kind": "duration_min",
+        "value": 90,
+        "excerpt": "The incident must last at least 90 minutes.",
+        "review_status": "accepted",
+        "reason": "Simulated interface fixture",
+        "source_type": "CRM_CONTRACT_DB",
+        "checker_b_audit": {
+          "object_id": "review:C-THRESHOLD:duration_min:2",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "CRM_CONTRACT_DB",
+            "record_id": "C-THRESHOLD",
+            "locator": "synthetic:C-THRESHOLD",
+            "excerpt": "The incident must last at least 90 minutes.",
+            "call_id": "tool-5"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      },
+      "model_reviews": [
+        {
+          "call_id": "model-4",
+          "model": "fixture",
+          "raw_output": "{\"verdict\": \"accepted\", \"reason\": \"Simulated interface fixture\"}"
+        }
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "mode": "simulated",
+      "check": {
+        "record_id": "P-THRESHOLD",
+        "kind": "duration_min",
+        "value": 60,
+        "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+        "review_status": "accepted",
+        "reason": "Simulated interface fixture",
+        "source_type": "POLICY_DB",
+        "checker_b_audit": {
+          "object_id": "review:P-THRESHOLD:duration_min:0",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "POLICY_DB",
+            "record_id": "P-THRESHOLD",
+            "locator": "synthetic:P-THRESHOLD",
+            "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+            "call_id": "tool-1"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      },
+      "model_reviews": [
+        {
+          "call_id": "model-2",
+          "model": "fixture",
+          "raw_output": "{\"verdict\": \"accepted\", \"reason\": \"Simulated interface fixture\"}"
+        }
+      ]
+    },
+    {
+      "mode": "simulated",
+      "check": {
+        "record_id": "C-REFERRAL",
+        "kind": "unexpanded",
+        "value": null,
+        "excerpt": "Eligibility is subject to the unpublished Schedule Z.",
+        "review_status": "unresolved",
+        "reason": "clause exceeds executable scope",
+        "checker_b_audit": {
+          "object_id": "review:C-REFERRAL:unexpanded:1",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "CRM_CONTRACT_DB",
+            "record_id": "C-REFERRAL",
+            "locator": "synthetic:C-REFERRAL",
+            "excerpt": "Eligibility is subject to the unpublished Schedule Z.",
+            "call_id": "tool-5"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      },
+      "model_reviews": []
+    },
+    {
+      "mode": "simulated",
+      "check": {
+        "record_id": "C-THRESHOLD",
+        "kind": "duration_min",
+        "value": 90,
+        "excerpt": "The incident must last at least 90 minutes.",
+        "review_status": "accepted",
+        "reason": "Simulated interface fixture",
+        "source_type": "CRM_CONTRACT_DB",
+        "checker_b_audit": {
+          "object_id": "review:C-THRESHOLD:duration_min:2",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "CRM_CONTRACT_DB",
+            "record_id": "C-THRESHOLD",
+            "locator": "synthetic:C-THRESHOLD",
+            "excerpt": "The incident must last at least 90 minutes.",
+            "call_id": "tool-5"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      },
+      "model_reviews": [
+        {
+          "call_id": "model-4",
+          "model": "fixture",
+          "raw_output": "{\"verdict\": \"accepted\", \"reason\": \"Simulated interface fixture\"}"
+        }
+      ]
+    }
+  ],
+  "deadline_history": [
+    null,
+    "UNKNOWN",
+    "SUPPORT"
+  ],
+  "late_decision": {
+    "task_id": "LATE-TICKET",
+    "run_id": "5fb55e5e-e536-467f-b549-46ecdf0ce3e2",
+    "graph_version": 3,
+    "answer_version": 1,
+    "recommendation": "ineligible",
+    "text": "不建议补偿",
+    "claim_ids": [
+      "claim-eligibility"
+    ]
+  },
+  "negative_card_level": "已建模范围内证据充分",
+  "other_checks": [
+    "错引拒绝",
+    "循环自证拒绝",
+    "非证明关系成环不过度阻断",
+    "旧阈值退出",
+    "固定输入复现"
+  ]
+}

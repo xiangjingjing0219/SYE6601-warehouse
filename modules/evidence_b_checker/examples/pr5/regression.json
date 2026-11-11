@@ -1,0 +1,422 @@
+[
+  {
+    "case": "DYN-01",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "NO-TICKET",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "LATE-TICKET",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "CONTRACT-403",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "passed": true
+  },
+  {
+    "case": "TICKET-403",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "passed": true
+  },
+  {
+    "case": "MAINTENANCE",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "OLD-CONTRACT",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "passed": true
+  },
+  {
+    "case": "CONFLICT",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "passed": true
+  },
+  {
+    "case": "REFERRAL",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "passed": true
+  },
+  {
+    "case": "AMOUNT",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "passed": true
+  },
+  {
+    "case": "BOUNDARY",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "SHORT-OUTAGE",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "EMPTY-CONTRACT",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "NEGATED",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "passed": true
+  },
+  {
+    "case": "MISSING-TICKET",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-01",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-02",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-03",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-04",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-05",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-06",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-07",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-08",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-09",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-10",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-11",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-12",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-13",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-14",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-15",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-16",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-17",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-18",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-19",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-20",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-21",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-22",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-23",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-24",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-25",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-26",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-27",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-28",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-29",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-30",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-31",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-32",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-33",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-34",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-35",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-36",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-37",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-38",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-39",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-40",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-41",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-42",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-43",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-44",
+    "expected": "eligible",
+    "actual": "eligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-45",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-46",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-47",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "HOLD-48",
+    "expected": "ineligible",
+    "actual": "ineligible",
+    "passed": true
+  },
+  {
+    "case": "错客户",
+    "actual": "undetermined",
+    "condition": "UNKNOWN",
+    "passed": true
+  },
+  {
+    "case": "错事故",
+    "actual": "undetermined",
+    "condition": "UNKNOWN",
+    "passed": true
+  },
+  {
+    "case": "过期",
+    "actual": "undetermined",
+    "condition": "UNKNOWN",
+    "passed": true
+  },
+  {
+    "case": "缺版本",
+    "actual": "undetermined",
+    "condition": "UNKNOWN",
+    "passed": true
+  },
+  {
+    "case": "重复编号内容冲突",
+    "actual": "undetermined",
+    "condition": "UNKNOWN",
+    "passed": true
+  },
+  {
+    "case": "未来提交",
+    "actual": "undetermined",
+    "condition": "UNKNOWN",
+    "passed": true
+  },
+  {
+    "case": "截止前空页",
+    "actual": "undetermined",
+    "condition": "UNKNOWN",
+    "passed": true
+  }
+]
