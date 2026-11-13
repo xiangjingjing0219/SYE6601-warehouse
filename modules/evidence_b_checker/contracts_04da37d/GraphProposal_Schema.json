@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GraphProposal",
+  "type": "object",
+  "properties": {
+    "task": {
+      "type": "object",
+      "properties": {
+        "task_id": { "type": "string" },
+        "run_id": { "type": "string" },
+        "question": { "type": "string" },
+        "customer_id": { "type": "string" },
+        "incident_id": { "type": "string" },
+        "event_time": { "type": "string" }
+      },
+      "required": ["task_id", "run_id", "question"]
+    },
+    "graph_proposal": {
+      "type": "object",
+      "properties": {
+        "graph_version": { "type": "string" },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "node_id": { "type": "string" },
+              "type": { 
+                "type": "string", 
+                "enum": ["claim", "obligation", "rule", "fact", "evidence"] 
+              },
+              "content": { "type": "string" },
+              "source_locator": {
+                "type": "object",
+                "properties": {
+                  "source_id": { "type": "string" },
+                  "locator": { "type": "string" },
+                  "excerpt": { "type": "string" }
+                }
+              }
+            },
+            "required": ["node_id", "type", "content"]
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from": { "type": "string" },
+              "to": { "type": "string" },
+              "relation": { 
+                "type": "string", 
+                "enum": ["depends_on", "supports", "refutes", "applies_to", "exception_of", "overrides", "derived_from"] 
+              }
+            },
+            "required": ["from", "to", "relation"]
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gap_type": { 
+                "type": "string", 
+                "enum": ["MISSING_EVIDENCE", "MISSING_DEPENDENCY", "UNRESOLVED_SEMANTICS", "TOOL_BLOCKED", "OUT_OF_SCOPE"] 
+              },
+              "target_source": { "type": "string" },
+              "description": { "type": "string" }
+            },
+            "required": ["gap_type", "description"]
+          }
+        },
+        "changes": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      },
+      "required": ["graph_version", "nodes", "edges"]
+    }
+  },
+  "required": ["task", "graph_proposal"]
+}

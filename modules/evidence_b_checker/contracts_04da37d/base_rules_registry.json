@@ -1,0 +1,158 @@
+[
+  {
+    "rule_id": "RULE-001",
+    "rule_name": "VIP客户专属SLA补偿规则",
+    "priority": 1,
+    "applicable_scope": {
+      "customer_tier": ["VIP"],
+      "plan_type": ["Enterprise_Pro"]
+    },
+    "dynamic_extraction_spec": {
+      "mandatory_base_checks": [
+        {
+          "check_name": "CHECK_EXCLUSIVE_CONTRACT",
+          "target_source": "CRM_CONTRACT_DB",
+          "on_not_found": "PROCEED_TO_GENERAL_POLICY"
+        }
+      ],
+      "runtime_obligations_to_extract": [
+        {
+          "node_type": "obligation",
+          "target_sources": ["MONITORING_SYSTEM", "MAINTENANCE_CALENDAR"],
+          "condition_expression": "incident_minutes - planned_maintenance_minutes >= 30",
+          "exceptions_to_detect": ["CLIENT_CONFIG_ERROR", "FORCE_MAJEURE"]
+        },
+        {
+          "node_type": "obligation",
+          "target_sources": ["TICKET_SYSTEM"],
+          "condition_expression": "ticket_submitted_within_hours <= 24",
+          "description": "动态从专属合同原文中发现的工单提交时限条件"
+        }
+      ],
+      "error_handling": {
+        "on_error_or_unchecked": "BLOCK_AND_RETURN_NULL",
+        "standard_gap_type": "MISSING_DEPENDENCY"
+      }
+    }
+  },
+  {
+    "rule_id": "RULE-002",
+    "rule_name": "通用客户标准补偿政策",
+    "priority": 100,
+    "applicable_scope": {
+      "customer_tier": ["STANDARD", "BASIC"],
+      "plan_type": ["ALL"]
+    },
+    "dynamic_extraction_spec": {
+      "mandatory_base_checks": [
+        {
+          "check_name": "VERIFY_NO_EXCLUSIVE_CONTRACT",
+          "target_source": "CRM_CONTRACT_DB",
+          "on_not_found": "APPLY_GENERAL_POLICY"
+        }
+      ],
+      "runtime_obligations_to_extract": [
+        {
+          "node_type": "obligation",
+          "target_sources": ["MONITORING_SYSTEM"],
+          "condition_expression": "incident_minutes >= 60",
+          "exceptions_to_detect": ["CLIENT_CONFIG_ERROR"]
+        }
+      ],
+      "error_handling": {
+        "on_error_or_unchecked": "BLOCK_AND_RETURN_NULL",
+        "standard_gap_type": "MISSING_EVIDENCE"
+      }
+    }
+  },
+  {
+    "rule_id": "RULE-003",
+    "rule_name": "金融专区高可用保障规则",
+    "priority": 5,
+    "applicable_scope": {
+      "customer_tier": ["FINANCE"],
+      "plan_type": ["FINANCE_ZONE"]
+    },
+    "dynamic_extraction_spec": {
+      "mandatory_base_checks": [
+        {
+          "check_name": "VERIFY_FINANCE_ZONE_IDENTITY",
+          "target_source": "FINANCE_ZONE_DB",
+          "on_not_found": "BLOCK_AND_RETURN_NULL"
+        }
+      ],
+      "runtime_obligations_to_extract": [
+        {
+          "node_type": "obligation",
+          "target_sources": ["MONITORING_SYSTEM"],
+          "condition_expression": "incident_minutes >= 15",
+          "exceptions_to_detect": ["DDoS_ATTACK", "CLIENT_CONFIG_ERROR"]
+        }
+      ],
+      "error_handling": {
+        "on_error_or_unchecked": "BLOCK_AND_RETURN_NULL",
+        "standard_gap_type": "MISSING_EVIDENCE"
+      }
+    }
+  },
+  {
+    "rule_id": "RULE-004",
+    "rule_name": "战略合作伙伴大客户极速补偿规则",
+    "priority": 2,
+    "applicable_scope": {
+      "customer_tier": ["KA_STRATEGIC"],
+      "plan_type": ["Custom_Dedicated"]
+    },
+    "dynamic_extraction_spec": {
+      "mandatory_base_checks": [
+        {
+          "check_name": "CHECK_KA_STATUS",
+          "target_source": "KA_CLIENT_DB",
+          "on_not_found": "PROCEED_TO_VIP_OR_GENERAL"
+        }
+      ],
+      "runtime_obligations_to_extract": [
+        {
+          "node_type": "obligation",
+          "target_sources": ["MONITORING_SYSTEM", "TICKET_SYSTEM"],
+          "condition_expression": "incident_minutes >= 10",
+          "exceptions_to_detect": ["CLIENT_MALICIOUS_ACTION"]
+        }
+      ],
+      "error_handling": {
+        "on_error_or_unchecked": "BLOCK_AND_RETURN_NULL",
+        "standard_gap_type": "MISSING_DEPENDENCY"
+      }
+    }
+  },
+  {
+    "rule_id": "RULE-005",
+    "rule_name": "免费试用与沙盒环境免赔规则",
+    "priority": 10,
+    "applicable_scope": {
+      "customer_tier": ["TRIAL", "SANDBOX"],
+      "plan_type": ["Free_Tier"]
+    },
+    "dynamic_extraction_spec": {
+      "mandatory_base_checks": [
+        {
+          "check_name": "CHECK_TRIAL_STATUS",
+          "target_source": "TRIAL_ACCOUNTS_DB",
+          "on_not_found": "PROCEED_TO_STANDARD_RULES"
+        }
+      ],
+      "runtime_obligations_to_extract": [
+        {
+          "node_type": "exemption",
+          "target_sources": ["SANDBOX_LOGS"],
+          "condition_expression": "is_free_tier == true",
+          "exceptions_to_detect": ["ALL_EXCEPTIONS"]
+        }
+      ],
+      "error_handling": {
+        "on_error_or_unchecked": "BLOCK_AND_RETURN_NULL",
+        "standard_gap_type": "OUT_OF_SCOPE"
+      }
+    }
+  }
+]

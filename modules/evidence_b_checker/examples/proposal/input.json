@@ -1,0 +1,37 @@
+{
+  "task": {
+    "task_id": "TASK-001",
+    "run_id": "RUN-dcb848119dc445cda9cf8ca897fa670c",
+    "customer_id": "C-DEMO",
+    "incident_id": "I-DEMO",
+    "question": "合同是否要求故障后24小时内提交工单？",
+    "event_time": "2026-10-01T00:00:00Z"
+  },
+  "graph_proposal": {
+    "graph_version": "demo-1",
+    "nodes": [
+      {
+        "node_id": "E1",
+        "type": "evidence",
+        "content": "A ticket must be submitted within 24 hours after the incident.",
+        "source_locator": {
+          "source_id": "S550fb74a2d341e5e",
+          "locator": "synthetic://S550fb74a2d341e5e/Ref4695692b310494",
+          "excerpt": "A ticket must be submitted within 24 hours after the incident."
+        }
+      },
+      {
+        "node_id": "O1",
+        "type": "obligation",
+        "content": "客户须在故障后24小时内提交工单"
+      }
+    ],
+    "edges": [
+      {
+        "from": "E1",
+        "to": "O1",
+        "relation": "supports"
+      }
+    ]
+  }
+}

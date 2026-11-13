@@ -1,0 +1,171 @@
+[
+  {
+    "case": "DYN-01",
+    "dataset": 1,
+    "decision": "eligible",
+    "maintenance_state": "SUPPORT",
+    "stop": "COMPLETED",
+    "gaps": [],
+    "calls": 6,
+    "errors": []
+  },
+  {
+    "case": "NO-TICKET",
+    "dataset": 2,
+    "decision": "eligible",
+    "maintenance_state": "SUPPORT",
+    "stop": "COMPLETED",
+    "gaps": [],
+    "calls": 4,
+    "errors": []
+  },
+  {
+    "case": "REFERRAL",
+    "dataset": 3,
+    "decision": "undetermined",
+    "maintenance_state": "SUPPORT",
+    "stop": "UNRESOLVED_GAPS",
+    "gaps": [
+      "条款 R3e8f20d8f55b5cd5 未完整展开或审核未通过",
+      "候选关系 R3e8f20d8f55b5cd5 unresolved：clause exceeds executable scope"
+    ],
+    "calls": 5,
+    "errors": []
+  },
+  {
+    "case": "AMOUNT",
+    "dataset": 4,
+    "decision": "undetermined",
+    "maintenance_state": "SUPPORT",
+    "stop": "UNRESOLVED_GAPS",
+    "gaps": [
+      "候选回答含需逐项核对的自由文本，不能自动采纳",
+      "存在未映射的金额或其他主张"
+    ],
+    "calls": 6,
+    "errors": []
+  },
+  {
+    "case": "LATE-TICKET",
+    "dataset": 5,
+    "decision": "ineligible",
+    "maintenance_state": "SUPPORT",
+    "stop": "COMPLETED",
+    "gaps": [],
+    "calls": 6,
+    "errors": []
+  },
+  {
+    "case": "BOUNDARY",
+    "dataset": 6,
+    "decision": "eligible",
+    "maintenance_state": "SUPPORT",
+    "stop": "COMPLETED",
+    "gaps": [],
+    "calls": 6,
+    "errors": []
+  },
+  {
+    "case": "MISSING-TICKET",
+    "dataset": 7,
+    "decision": "ineligible",
+    "maintenance_state": "SUPPORT",
+    "stop": "COMPLETED",
+    "gaps": [],
+    "calls": 6,
+    "errors": []
+  },
+  {
+    "case": "MAINTENANCE",
+    "dataset": 8,
+    "decision": "undetermined",
+    "maintenance_state": "UNKNOWN",
+    "stop": "UNRESOLVED_GAPS",
+    "gaps": [
+      "维护材料缺少可验证的例外字段"
+    ],
+    "calls": 6,
+    "errors": []
+  },
+  {
+    "case": "CONFLICT",
+    "dataset": 9,
+    "decision": "undetermined",
+    "maintenance_state": "SUPPORT",
+    "stop": "UNRESOLVED_GAPS",
+    "gaps": [
+      "condition:duration_min CONFLICT"
+    ],
+    "calls": 5,
+    "errors": []
+  },
+  {
+    "case": "EMPTY-CONTRACT",
+    "dataset": 10,
+    "decision": "eligible",
+    "maintenance_state": "SUPPORT",
+    "stop": "COMPLETED",
+    "gaps": [],
+    "calls": 4,
+    "errors": []
+  },
+  {
+    "case": "TICKET-403",
+    "dataset": 1,
+    "decision": "undetermined",
+    "maintenance_state": "SUPPORT",
+    "stop": "ACCESS_DENIED",
+    "gaps": [
+      "condition:ticket_deadline_hours UNKNOWN",
+      "TOOL_BLOCKED",
+      "TICKET_DB 403"
+    ],
+    "calls": 6,
+    "errors": [
+      403
+    ]
+  },
+  {
+    "case": "CONTRACT-403",
+    "dataset": 1,
+    "decision": "undetermined",
+    "maintenance_state": "SUPPORT",
+    "stop": "ACCESS_DENIED",
+    "gaps": [
+      "必查来源 CRM_CONTRACT_DB 未取得完整适用回执",
+      "TOOL_BLOCKED",
+      "CRM_CONTRACT_DB 403"
+    ],
+    "calls": 4,
+    "errors": [
+      403
+    ]
+  },
+  {
+    "case": "OLD-CONTRACT",
+    "dataset": 1,
+    "decision": "undetermined",
+    "maintenance_state": "SUPPORT",
+    "stop": "UNRESOLVED_GAPS",
+    "gaps": [
+      "必查来源 CRM_CONTRACT_DB 未取得完整适用回执"
+    ],
+    "calls": 5,
+    "errors": []
+  },
+  {
+    "case": "REFERRAL",
+    "dataset": 11,
+    "decision": "undetermined",
+    "maintenance_state": "SUPPORT",
+    "stop": "TOOL_BLOCKED",
+    "gaps": [
+      "必查来源 CRM_CONTRACT_DB 未取得完整适用回执",
+      "TOOL_BLOCKED"
+    ],
+    "calls": 4,
+    "errors": [
+      "CHECKER_SOURCE_UNVERIFIED"
+    ]
+  }
+]

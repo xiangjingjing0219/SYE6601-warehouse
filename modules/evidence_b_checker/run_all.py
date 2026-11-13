@@ -23,7 +23,7 @@ def main():
     for row in full:
         decision = row['decision']
         lines.append(f"- {row['case']}：{LABELS.get(decision, decision)}；缺口数 {row['gap_count']}。")
-    lines += ['', '## 二、同学模拟工具的八种情况']
+    lines += ['', '## 二、旧版模拟工具的八种情况']
     for row in actual:
         codes = '、'.join(row['adapter_gaps']) or '适配层未新增字段缺口；仍需查看Checker的业务缺口'
         lines.append(f"- {row['case']}：{LABELS.get(row['decision'], row['decision'])}；{codes}。")
@@ -34,6 +34,7 @@ def main():
               '评分是证据充分性的演示分数，不是答案正确概率。',
               '工具查询成功不等于资料完整；适配成功不等于可以赔偿。',
               '自动决定补查哪个工具、最多三轮与实际转人工仍由Loop A负责。']
+    lines += ['', '## 统一模拟工具联调', '另行运行 python run_unified_checker.py；新工具的结果在 examples/unified_results.json。']
     if args.test:
         # 使用当前Python，避免电脑里多个Python造成环境混乱。
         completed = subprocess.run([sys.executable, '-m', 'unittest', '-v'], cwd=root)

@@ -1,0 +1,170 @@
+{
+  "task_id": "TASK-001",
+  "run_id": "RUN-dcb848119dc445cda9cf8ca897fa670c",
+  "proposal_version": "demo-1",
+  "reference_checks": [
+    {
+      "node_id": "E1",
+      "located": true,
+      "reason": "已定位适用记录中的原句",
+      "matches": [
+        {
+          "call_id": "tool-ff87ad0b1ab7455d9c20f8d84f65e426",
+          "provider_call_id": "tool-ff87ad0b1ab7455d9c20f8d84f65e426",
+          "source_type": "CRM_CONTRACT_DB",
+          "source_id": "S550fb74a2d341e5e",
+          "record_id": "Ref4695692b310494",
+          "citation": "synthetic://S550fb74a2d341e5e/Ref4695692b310494",
+          "record_locator": {
+            "unit": "unicode_code_points",
+            "start": 45,
+            "end": 107
+          },
+          "record_excerpt": "A ticket must be submitted within 24 hours after the incident.",
+          "cited_excerpt": "A ticket must be submitted within 24 hours after the incident."
+        }
+      ]
+    }
+  ],
+  "missing_query_fields": [],
+  "candidate_gaps": [],
+  "rule_catalog": [
+    {
+      "rule_id": "RULE-001",
+      "name": "VIP客户专属SLA补偿规则",
+      "priority": 1,
+      "scope": {
+        "customer_tier": [
+          "VIP"
+        ],
+        "plan_type": [
+          "Enterprise_Pro"
+        ]
+      },
+      "sources_registered": [
+        "CRM_CONTRACT_DB",
+        "MAINTENANCE_CALENDAR"
+      ],
+      "sources_not_registered": [
+        "MONITORING_SYSTEM",
+        "TICKET_SYSTEM"
+      ],
+      "pending_source_names": {
+        "MONITORING_SYSTEM": "INCIDENT_DB",
+        "TICKET_SYSTEM": "TICKET_DB"
+      },
+      "sources_without_candidate": []
+    },
+    {
+      "rule_id": "RULE-002",
+      "name": "通用客户标准补偿政策",
+      "priority": 100,
+      "scope": {
+        "customer_tier": [
+          "STANDARD",
+          "BASIC"
+        ],
+        "plan_type": [
+          "ALL"
+        ]
+      },
+      "sources_registered": [
+        "CRM_CONTRACT_DB"
+      ],
+      "sources_not_registered": [
+        "MONITORING_SYSTEM"
+      ],
+      "pending_source_names": {
+        "MONITORING_SYSTEM": "INCIDENT_DB"
+      },
+      "sources_without_candidate": []
+    },
+    {
+      "rule_id": "RULE-003",
+      "name": "金融专区高可用保障规则",
+      "priority": 5,
+      "scope": {
+        "customer_tier": [
+          "FINANCE"
+        ],
+        "plan_type": [
+          "FINANCE_ZONE"
+        ]
+      },
+      "sources_registered": [],
+      "sources_not_registered": [
+        "FINANCE_ZONE_DB",
+        "MONITORING_SYSTEM"
+      ],
+      "pending_source_names": {
+        "MONITORING_SYSTEM": "INCIDENT_DB"
+      },
+      "sources_without_candidate": [
+        "FINANCE_ZONE_DB"
+      ]
+    },
+    {
+      "rule_id": "RULE-004",
+      "name": "战略合作伙伴大客户极速补偿规则",
+      "priority": 2,
+      "scope": {
+        "customer_tier": [
+          "KA_STRATEGIC"
+        ],
+        "plan_type": [
+          "Custom_Dedicated"
+        ]
+      },
+      "sources_registered": [],
+      "sources_not_registered": [
+        "KA_CLIENT_DB",
+        "MONITORING_SYSTEM",
+        "TICKET_SYSTEM"
+      ],
+      "pending_source_names": {
+        "MONITORING_SYSTEM": "INCIDENT_DB",
+        "TICKET_SYSTEM": "TICKET_DB"
+      },
+      "sources_without_candidate": [
+        "KA_CLIENT_DB"
+      ]
+    },
+    {
+      "rule_id": "RULE-005",
+      "name": "免费试用与沙盒环境免赔规则",
+      "priority": 10,
+      "scope": {
+        "customer_tier": [
+          "TRIAL",
+          "SANDBOX"
+        ],
+        "plan_type": [
+          "Free_Tier"
+        ]
+      },
+      "sources_registered": [],
+      "sources_not_registered": [
+        "SANDBOX_LOGS",
+        "TRIAL_ACCOUNTS_DB"
+      ],
+      "pending_source_names": {},
+      "sources_without_candidate": [
+        "SANDBOX_LOGS",
+        "TRIAL_ACCOUNTS_DB"
+      ]
+    }
+  ],
+  "relation_checks": [
+    {
+      "from": "E1",
+      "to": "O1",
+      "relation": "supports",
+      "review_key": "22c3061d55e914a21f66e0467013011fc2d96a00a61fd2891787997e4ef926c7",
+      "review_status": "unresolved",
+      "reason": "请独立核对两端命题、关系方向与原文"
+    }
+  ],
+  "stage": "proposal_intake",
+  "recommendation": "undetermined",
+  "reason": "本步骤核对格式与原句。候选关系仍需独立语义复核，不发布补偿结论。"
+}
