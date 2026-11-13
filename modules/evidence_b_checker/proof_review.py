@@ -2,6 +2,28 @@
 from dynamic_evidence.tools import applicable
 
 
+def reference_matches(ref,row,receipt,task):
+    """新版引用核对文档、位置和原句；旧版仅按原有引用协议核对。"""
+    if not applicable(row,receipt['source_type'],task) or row.get('statement') != ref.get('excerpt'):
+        return False
+    loc=ref.get('locator')
+    if isinstance(loc,str):
+        return (bool(loc) and ref.get('source_id')==receipt['source_type']
+                and row.get('citation')==loc)
+    if not isinstance(loc,dict) or loc!=row.get('locator') or loc.get('unit')!='unicode_code_points':
+        return False
+    ctx=row.get('context') or {}
+    a,b=loc.get('start'),loc.get('end')
+    start,end=ctx.get('start'),ctx.get('end')
+    text=ctx.get('text')
+    return (bool(ref.get('source_id')) and ref['source_id']==row.get('source_id')==ctx.get('source_id')
+            and ref.get('record_id')==row.get('record_id')
+            and ctx.get('available') is not False and isinstance(text,str)
+            and all(type(x) is int for x in (a,b,start,end))
+            and 0<=start<=a<b<=end and end-start==len(text)
+            and text[a-start:b-start]==ref['excerpt']==row.get('excerpt'))
+
+
 def proof_issues(graph, receipts, task):
     """把关系按「要证明的对象 → 依据」统一方向。覆盖/适用关系不参与循环自证检查。"""
     nodes={n['id']:n for n in graph['nodes']}
@@ -16,9 +38,8 @@ def proof_issues(graph, receipts, task):
         ref=n.get('reference',{})
         r=calls.get(ref.get('call_id'),{})
         found=[x for x in r.get('records',[]) if x.get('evidence_id')==ref.get('record_id')]
-        if (r.get('tool_status')!='SUCCESS' or r.get('source_type')!=ref.get('source_id')
-            or not any(x.get('citation')==ref.get('locator') and x.get('statement')==ref.get('excerpt')
-                       and applicable(x,r['source_type'],task) for x in found)):
+        if (r.get('tool_status')!='SUCCESS' or len(found)!=1
+            or not reference_matches(ref,found[0],r,task)):
             issues.append('原始回执不能证实引用：'+n['id'])
     for e in graph['edges']:
         a,b=e['from'],e['to']

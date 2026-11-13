@@ -45,3 +45,7 @@ python proposal_intake.py examples/proposal/input.json examples/proposal/receipt
 `--alignment ../../loop_b_unified/dev_checks/interface_alignment_20261113.json`。旧版没有此文件时，省略即可。
 
 规则来源分为已经注册、待确认对应、没有候选工具。待确认名称只用于显示，不会改写查询。结果保留文档编号、来源类型、记录编号、调用编号与原始字符位置；其中 record_locator 指整条记录，不是截取短句的单独位置。缺客户、事故或事件时间会列出缺项，不补演示值。字符串引用仍按先前演示约定解析，尚未作为团队标准签认。
+
+## 团队主分支与 02B 同次联调
+在团队仓库根目录运行 `python modules/evidence_b_checker/export_main_handoff.py`。需要根目录的 dynamic_evidence 与 loop_b_unified；配套本地演示包已包含这两个目录。无需密钥。
+在 examples/main_handoff 下，正常与无权限是两个独立运行。每个目录的三个阶段都包含当轮收到的原生提案（无新增提案时为 null）、截至该轮的工具回执和审核快照。完整运行包含最终版本、调用和停止原因。中间轮次没有发布的答案版本。来自团队主分支的实际函数调用，模型使用本地模拟器；不是新的在线模型实验，也不代表单独的 01A GraphProposal 格式已经签认。

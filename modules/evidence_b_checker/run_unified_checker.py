@@ -5,7 +5,10 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE / "unified_runtime"))
+# 团队主程序可用时直接对接它；单独下载旧包时才使用附带版本。
+TEAM_ROOT = HERE.parents[1]
+sys.path.insert(0, str(TEAM_ROOT if (TEAM_ROOT / "dynamic_evidence/controller.py").is_file()
+                       else HERE / "unified_runtime"))
 from dynamic_evidence.cases import make_case
 from dynamic_evidence.controller import Harness
 from dynamic_evidence.mock_model import FixtureModel
@@ -48,6 +51,9 @@ def checked_provider(provider):
 
 def unified_review(task, previous, proposal, receipts, call_model, cache):
     graph = review(task, previous, proposal, receipts, call_model, cache)
+    # 新版主程序已正确保留维护未知，不再重复改写其版本变化记录。
+    if any(n["id"]=="condition:no-maintenance-exclusion" and n.get("state")=="UNKNOWN" for n in graph["nodes"]):
+        return graph
     # 计划维护是事实，是否免责是另一个问题。只有原审核器已报告
     # 缺少例外字段时才修正节点展示；保留其关键缺口和总体未知结论。
     if any(g["reason"] == "维护材料缺少可验证的例外字段" for g in graph["gaps"]):

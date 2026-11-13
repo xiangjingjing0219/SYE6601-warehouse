@@ -1,0 +1,969 @@
+{
+  "proposal": {
+    "claims": [
+      {
+        "kind": "eligibility",
+        "text": "Is this outage eligible for compensation?"
+      }
+    ],
+    "conditions": [
+      {
+        "record_id": "R6f3a663fc5f2ef6d",
+        "kind": "duration_min",
+        "value": 60,
+        "excerpt": "Compensation requires an outage lasting at least 60 minutes."
+      }
+    ]
+  },
+  "receipts": [
+    {
+      "task_id": "DYN-01",
+      "run_id": "6db6fc1f-ddf4-4f51-aa8f-4bef36f95449",
+      "call_id": "tool-1",
+      "provider_call_id": "tool-86d2e8f77bda4cbe9b041df951de91c5",
+      "tool_name": "get_policy",
+      "source_type": "POLICY_DB",
+      "customer_id": "C-DEMO",
+      "incident_id": "I-DEMO",
+      "arguments": {
+        "customer_id": "C-DEMO",
+        "incident_id": "I-DEMO",
+        "event_time": "2026-10-01T00:00:00Z",
+        "page_token": null
+      },
+      "status": "SUCCESS",
+      "tool_status": "SUCCESS",
+      "records": [
+        {
+          "source_type": "POLICY_DB",
+          "customer_id": "C-DEMO",
+          "incident_id": "I-DEMO",
+          "version": "v1",
+          "effective_from": "2026-01-01T00:00:00Z",
+          "effective_to": "2026-12-31T23:59:59Z",
+          "record_id": "R6f3a663fc5f2ef6d",
+          "evidence_id": "R6f3a663fc5f2ef6d",
+          "source_id": "S45749dc4243389f5",
+          "scope": {
+            "customer_id": "C-DEMO",
+            "incident_id": "I-DEMO"
+          },
+          "service_scope": null,
+          "locator": {
+            "unit": "unicode_code_points",
+            "start": 0,
+            "end": 60
+          },
+          "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+          "statement": "Compensation requires an outage lasting at least 60 minutes.",
+          "context": {
+            "source_id": "S45749dc4243389f5",
+            "start": 0,
+            "end": 60,
+            "text": "Compensation requires an outage lasting at least 60 minutes.",
+            "available": true,
+            "coverage": "retrieved source text only",
+            "has_more_context": false
+          },
+          "citation": "synthetic://S45749dc4243389f5/R6f3a663fc5f2ef6d",
+          "call_id": "tool-86d2e8f77bda4cbe9b041df951de91c5"
+        }
+      ],
+      "pagination_complete": true,
+      "next_page_token": null,
+      "fetched_at": "2026-11-13T10:35:14.517867+00:00",
+      "cost_units": 1,
+      "cost": {
+        "value": 1,
+        "unit": "simulated_tool_unit"
+      },
+      "scope_declaration": {
+        "customer_id": "C-DEMO",
+        "incident_id": "I-DEMO",
+        "coverage": "all configured records for this customer and incident in one frozen synthetic dataset",
+        "event_time": "2026-10-01T00:00:00Z",
+        "time_filter_applied": false,
+        "service_scope": null,
+        "limitation": "Service applicability is unspecified. Effective-time validation belongs to Checker. Empty means none in this configured dataset, not none in an enterprise."
+      },
+      "elapsed_ms": 0.17,
+      "elapsed": {
+        "value": 0.098,
+        "unit": "ms"
+      },
+      "requested_page": null,
+      "requested_source": "POLICY_DB"
+    },
+    {
+      "task_id": "DYN-01",
+      "run_id": "6db6fc1f-ddf4-4f51-aa8f-4bef36f95449",
+      "call_id": "tool-2",
+      "provider_call_id": "tool-658279d37acc4a37a4543f84bc3f3cc0",
+      "tool_name": "get_incident",
+      "source_type": "INCIDENT_DB",
+      "customer_id": "C-DEMO",
+      "incident_id": "I-DEMO",
+      "arguments": {
+        "customer_id": "C-DEMO",
+        "incident_id": "I-DEMO",
+        "event_time": "2026-10-01T00:00:00Z",
+        "page_token": null
+      },
+      "status": "SUCCESS",
+      "tool_status": "SUCCESS",
+      "records": [
+        {
+          "source_type": "INCIDENT_DB",
+          "customer_id": "C-DEMO",
+          "incident_id": "I-DEMO",
+          "version": "v1",
+          "effective_from": "2026-01-01T00:00:00Z",
+          "effective_to": "2026-12-31T23:59:59Z",
+          "duration_minutes": 120,
+          "record_id": "Rcb51d95acdbdea89",
+          "evidence_id": "Rcb51d95acdbdea89",
+          "source_id": "S7a4b33a551950623",
+          "scope": {
+            "customer_id": "C-DEMO",
+            "incident_id": "I-DEMO"
+          },
+          "service_scope": null,
+          "locator": {
+            "unit": "unicode_code_points",
+            "start": 0,
+            "end": 25
+          },
+          "excerpt": "Verified outage duration.",
+          "statement": "Verified outage duration.",
+          "context": {
+            "source_id": "S7a4b33a551950623",
+            "start": 0,
+            "end": 25,
+            "text": "Verified outage duration.",
+            "available": true,
+            "coverage": "retrieved source text only",
+            "has_more_context": false
+          },
+          "citation": "synthetic://S7a4b33a551950623/Rcb51d95acdbdea89",
+          "call_id": "tool-658279d37acc4a37a4543f84bc3f3cc0"
+        }
+      ],
+      "pagination_complete": true,
+      "next_page_token": null,
+      "fetched_at": "2026-11-13T10:35:14.518038+00:00",
+      "cost_units": 1,
+      "cost": {
+        "value": 1,
+        "unit": "simulated_tool_unit"
+      },
+      "scope_declaration": {
+        "customer_id": "C-DEMO",
+        "incident_id": "I-DEMO",
+        "coverage": "all configured records for this customer and incident in one frozen synthetic dataset",
+        "event_time": "2026-10-01T00:00:00Z",
+        "time_filter_applied": false,
+        "service_scope": null,
+        "limitation": "Service applicability is unspecified. Effective-time validation belongs to Checker. Empty means none in this configured dataset, not none in an enterprise."
+      },
+      "elapsed_ms": 0.22,
+      "elapsed": {
+        "value": 0.059,
+        "unit": "ms"
+      },
+      "requested_page": null,
+      "requested_source": "INCIDENT_DB"
+    },
+    {
+      "task_id": "DYN-01",
+      "run_id": "6db6fc1f-ddf4-4f51-aa8f-4bef36f95449",
+      "call_id": "tool-3",
+      "provider_call_id": "tool-cb8547798cde42f69e3b992e279e3679",
+      "tool_name": "list_maintenance",
+      "source_type": "MAINTENANCE_CALENDAR",
+      "customer_id": "C-DEMO",
+      "incident_id": "I-DEMO",
+      "arguments": {
+        "customer_id": "C-DEMO",
+        "incident_id": "I-DEMO",
+        "event_time": "2026-10-01T00:00:00Z",
+        "page_token": null
+      },
+      "status": "SUCCESS",
+      "tool_status": "SUCCESS",
+      "records": [],
+      "pagination_complete": true,
+      "next_page_token": null,
+      "fetched_at": "2026-11-13T10:35:14.518433+00:00",
+      "cost_units": 1,
+      "cost": {
+        "value": 1,
+        "unit": "simulated_tool_unit"
+      },
+      "scope_declaration": {
+        "customer_id": "C-DEMO",
+        "incident_id": "I-DEMO",
+        "coverage": "all configured records for this customer and incident in one frozen synthetic dataset",
+        "event_time": "2026-10-01T00:00:00Z",
+        "time_filter_applied": false,
+        "service_scope": null,
+        "limitation": "Service applicability is unspecified. Effective-time validation belongs to Checker. Empty means none in this configured dataset, not none in an enterprise."
+      },
+      "elapsed_ms": 0.07,
+      "elapsed": {
+        "value": 0.025,
+        "unit": "ms"
+      },
+      "requested_page": null,
+      "requested_source": "MAINTENANCE_CALENDAR"
+    }
+  ],
+  "snapshot": {
+    "task_id": "DYN-01",
+    "run_id": "6db6fc1f-ddf4-4f51-aa8f-4bef36f95449",
+    "graph_version": 1,
+    "nodes": [
+      {
+        "id": "claim-eligibility",
+        "type": "claim",
+        "review_status": "accepted",
+        "text": "Is this outage eligible for compensation?",
+        "state": "UNKNOWN"
+      },
+      {
+        "id": "evidence:R6f3a663fc5f2ef6d",
+        "type": "evidence",
+        "review_status": "accepted",
+        "reference": {
+          "source_id": "S45749dc4243389f5",
+          "record_id": "R6f3a663fc5f2ef6d",
+          "locator": {
+            "unit": "unicode_code_points",
+            "start": 0,
+            "end": 60
+          },
+          "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+          "call_id": "tool-1"
+        },
+        "metadata": {
+          "customer_id": "C-DEMO",
+          "incident_id": "I-DEMO",
+          "scope": {
+            "customer_id": "C-DEMO",
+            "incident_id": "I-DEMO"
+          },
+          "version": "v1",
+          "effective_from": "2026-01-01T00:00:00Z",
+          "effective_to": "2026-12-31T23:59:59Z",
+          "fetched_at": "2026-11-13T10:35:14.517867+00:00",
+          "tool_status": "SUCCESS",
+          "pagination_complete": true
+        }
+      },
+      {
+        "id": "evidence:Rcb51d95acdbdea89",
+        "type": "evidence",
+        "review_status": "accepted",
+        "reference": {
+          "source_id": "S7a4b33a551950623",
+          "record_id": "Rcb51d95acdbdea89",
+          "locator": {
+            "unit": "unicode_code_points",
+            "start": 0,
+            "end": 25
+          },
+          "excerpt": "Verified outage duration.",
+          "call_id": "tool-2"
+        },
+        "metadata": {
+          "customer_id": "C-DEMO",
+          "incident_id": "I-DEMO",
+          "scope": {
+            "customer_id": "C-DEMO",
+            "incident_id": "I-DEMO"
+          },
+          "version": "v1",
+          "effective_from": "2026-01-01T00:00:00Z",
+          "effective_to": "2026-12-31T23:59:59Z",
+          "fetched_at": "2026-11-13T10:35:14.518038+00:00",
+          "tool_status": "SUCCESS",
+          "pagination_complete": true
+        }
+      },
+      {
+        "id": "required:POLICY_DB",
+        "type": "obligation",
+        "review_status": "accepted",
+        "state": "SUPPORT",
+        "receipt_ids": [
+          "tool-1"
+        ]
+      },
+      {
+        "id": "required:INCIDENT_DB",
+        "type": "obligation",
+        "review_status": "accepted",
+        "state": "SUPPORT",
+        "receipt_ids": [
+          "tool-2"
+        ]
+      },
+      {
+        "id": "required:CRM_CONTRACT_DB",
+        "type": "obligation",
+        "review_status": "accepted",
+        "state": "UNKNOWN",
+        "receipt_ids": []
+      },
+      {
+        "id": "required:MAINTENANCE_CALENDAR",
+        "type": "obligation",
+        "review_status": "accepted",
+        "state": "SUPPORT",
+        "receipt_ids": [
+          "tool-3"
+        ]
+      },
+      {
+        "id": "fact:Rcb51d95acdbdea89",
+        "type": "fact",
+        "review_status": "accepted",
+        "text": "Verified outage duration."
+      },
+      {
+        "id": "rule:R6f3a663fc5f2ef6d:duration_min",
+        "type": "rule",
+        "review_status": "accepted",
+        "condition": "duration_min",
+        "value": 60,
+        "active": true
+      },
+      {
+        "id": "condition:duration_min",
+        "type": "obligation",
+        "review_status": "accepted",
+        "state": "SUPPORT",
+        "condition": "duration_min",
+        "value": 60
+      },
+      {
+        "id": "condition:no-maintenance-exclusion",
+        "type": "obligation",
+        "review_status": "accepted",
+        "state": "SUPPORT",
+        "receipt_ids": [
+          "tool-3"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "depends:required:POLICY_DB",
+        "type": "depends_on",
+        "from": "claim-eligibility",
+        "to": "required:POLICY_DB",
+        "review_status": "accepted"
+      },
+      {
+        "id": "depends:required:INCIDENT_DB",
+        "type": "depends_on",
+        "from": "claim-eligibility",
+        "to": "required:INCIDENT_DB",
+        "review_status": "accepted"
+      },
+      {
+        "id": "depends:required:CRM_CONTRACT_DB",
+        "type": "depends_on",
+        "from": "claim-eligibility",
+        "to": "required:CRM_CONTRACT_DB",
+        "review_status": "accepted"
+      },
+      {
+        "id": "depends:required:MAINTENANCE_CALENDAR",
+        "type": "depends_on",
+        "from": "claim-eligibility",
+        "to": "required:MAINTENANCE_CALENDAR",
+        "review_status": "accepted"
+      },
+      {
+        "id": "fact-source:Rcb51d95acdbdea89",
+        "type": "derived_from",
+        "from": "fact:Rcb51d95acdbdea89",
+        "to": "evidence:Rcb51d95acdbdea89",
+        "review_status": "accepted"
+      },
+      {
+        "id": "required-source:POLICY_DB:R6f3a663fc5f2ef6d",
+        "type": "derived_from",
+        "from": "required:POLICY_DB",
+        "to": "evidence:R6f3a663fc5f2ef6d",
+        "review_status": "accepted"
+      },
+      {
+        "id": "required-source:INCIDENT_DB:Rcb51d95acdbdea89",
+        "type": "derived_from",
+        "from": "required:INCIDENT_DB",
+        "to": "evidence:Rcb51d95acdbdea89",
+        "review_status": "accepted"
+      },
+      {
+        "id": "origin:rule:R6f3a663fc5f2ef6d:duration_min",
+        "type": "derived_from",
+        "from": "rule:R6f3a663fc5f2ef6d:duration_min",
+        "to": "evidence:R6f3a663fc5f2ef6d",
+        "review_status": "accepted"
+      },
+      {
+        "id": "logic:condition:duration_min:R6f3a663fc5f2ef6d",
+        "type": "derived_from",
+        "from": "condition:duration_min",
+        "to": "rule:R6f3a663fc5f2ef6d:duration_min",
+        "review_status": "accepted"
+      },
+      {
+        "id": "proof:condition:duration_min:Rcb51d95acdbdea89",
+        "type": "supports",
+        "from": "evidence:Rcb51d95acdbdea89",
+        "to": "condition:duration_min",
+        "review_status": "accepted"
+      },
+      {
+        "id": "depends:condition:duration_min",
+        "type": "depends_on",
+        "from": "claim-eligibility",
+        "to": "condition:duration_min",
+        "review_status": "accepted"
+      },
+      {
+        "id": "depends:maintenance",
+        "type": "depends_on",
+        "from": "claim-eligibility",
+        "to": "condition:no-maintenance-exclusion",
+        "review_status": "accepted"
+      }
+    ],
+    "gaps": [
+      {
+        "gap_type": "MISSING_EVIDENCE",
+        "reason": "必查来源 CRM_CONTRACT_DB 未取得完整适用回执",
+        "target_source": "CRM_CONTRACT_DB",
+        "critical": true,
+        "must_verify": true,
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      }
+    ],
+    "checks": [
+      {
+        "record_id": "R6f3a663fc5f2ef6d",
+        "kind": "duration_min",
+        "value": 60,
+        "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+        "review_status": "accepted",
+        "reason": "Simulated interface fixture",
+        "source_type": "POLICY_DB",
+        "checker_b_audit": {
+          "object_id": "review:R6f3a663fc5f2ef6d:duration_min:0",
+          "check_type": "candidate_relation",
+          "citation": {
+            "source_id": "S45749dc4243389f5",
+            "record_id": "R6f3a663fc5f2ef6d",
+            "locator": {
+              "unit": "unicode_code_points",
+              "start": 0,
+              "end": 60
+            },
+            "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+            "call_id": "tool-1"
+          },
+          "lookup": "模型调用按同一运行的 stage=review 及 record_id/kind/value/excerpt 回查；结构拒绝无需模型"
+        }
+      }
+    ],
+    "changes": [
+      {
+        "object_id": "claim-eligibility",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "claim-eligibility",
+          "type": "claim",
+          "review_status": "accepted",
+          "text": "Is this outage eligible for compensation?",
+          "state": "UNKNOWN"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "condition:duration_min",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "condition:duration_min",
+          "type": "obligation",
+          "review_status": "accepted",
+          "state": "SUPPORT",
+          "condition": "duration_min",
+          "value": 60
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "condition:no-maintenance-exclusion",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "condition:no-maintenance-exclusion",
+          "type": "obligation",
+          "review_status": "accepted",
+          "state": "SUPPORT",
+          "receipt_ids": [
+            "tool-3"
+          ]
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "depends:condition:duration_min",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "depends:condition:duration_min",
+          "type": "depends_on",
+          "from": "claim-eligibility",
+          "to": "condition:duration_min",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "depends:maintenance",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "depends:maintenance",
+          "type": "depends_on",
+          "from": "claim-eligibility",
+          "to": "condition:no-maintenance-exclusion",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "depends:required:CRM_CONTRACT_DB",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "depends:required:CRM_CONTRACT_DB",
+          "type": "depends_on",
+          "from": "claim-eligibility",
+          "to": "required:CRM_CONTRACT_DB",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "depends:required:INCIDENT_DB",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "depends:required:INCIDENT_DB",
+          "type": "depends_on",
+          "from": "claim-eligibility",
+          "to": "required:INCIDENT_DB",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "depends:required:MAINTENANCE_CALENDAR",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "depends:required:MAINTENANCE_CALENDAR",
+          "type": "depends_on",
+          "from": "claim-eligibility",
+          "to": "required:MAINTENANCE_CALENDAR",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "depends:required:POLICY_DB",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "depends:required:POLICY_DB",
+          "type": "depends_on",
+          "from": "claim-eligibility",
+          "to": "required:POLICY_DB",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "evidence:R6f3a663fc5f2ef6d",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "evidence:R6f3a663fc5f2ef6d",
+          "type": "evidence",
+          "review_status": "accepted",
+          "reference": {
+            "source_id": "S45749dc4243389f5",
+            "record_id": "R6f3a663fc5f2ef6d",
+            "locator": {
+              "unit": "unicode_code_points",
+              "start": 0,
+              "end": 60
+            },
+            "excerpt": "Compensation requires an outage lasting at least 60 minutes.",
+            "call_id": "tool-1"
+          },
+          "metadata": {
+            "customer_id": "C-DEMO",
+            "incident_id": "I-DEMO",
+            "scope": {
+              "customer_id": "C-DEMO",
+              "incident_id": "I-DEMO"
+            },
+            "version": "v1",
+            "effective_from": "2026-01-01T00:00:00Z",
+            "effective_to": "2026-12-31T23:59:59Z",
+            "fetched_at": "2026-11-13T10:35:14.517867+00:00",
+            "tool_status": "SUCCESS",
+            "pagination_complete": true
+          }
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "evidence:Rcb51d95acdbdea89",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "evidence:Rcb51d95acdbdea89",
+          "type": "evidence",
+          "review_status": "accepted",
+          "reference": {
+            "source_id": "S7a4b33a551950623",
+            "record_id": "Rcb51d95acdbdea89",
+            "locator": {
+              "unit": "unicode_code_points",
+              "start": 0,
+              "end": 25
+            },
+            "excerpt": "Verified outage duration.",
+            "call_id": "tool-2"
+          },
+          "metadata": {
+            "customer_id": "C-DEMO",
+            "incident_id": "I-DEMO",
+            "scope": {
+              "customer_id": "C-DEMO",
+              "incident_id": "I-DEMO"
+            },
+            "version": "v1",
+            "effective_from": "2026-01-01T00:00:00Z",
+            "effective_to": "2026-12-31T23:59:59Z",
+            "fetched_at": "2026-11-13T10:35:14.518038+00:00",
+            "tool_status": "SUCCESS",
+            "pagination_complete": true
+          }
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "fact-source:Rcb51d95acdbdea89",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "fact-source:Rcb51d95acdbdea89",
+          "type": "derived_from",
+          "from": "fact:Rcb51d95acdbdea89",
+          "to": "evidence:Rcb51d95acdbdea89",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "fact:Rcb51d95acdbdea89",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "fact:Rcb51d95acdbdea89",
+          "type": "fact",
+          "review_status": "accepted",
+          "text": "Verified outage duration."
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "logic:condition:duration_min:R6f3a663fc5f2ef6d",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "logic:condition:duration_min:R6f3a663fc5f2ef6d",
+          "type": "derived_from",
+          "from": "condition:duration_min",
+          "to": "rule:R6f3a663fc5f2ef6d:duration_min",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "origin:rule:R6f3a663fc5f2ef6d:duration_min",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "origin:rule:R6f3a663fc5f2ef6d:duration_min",
+          "type": "derived_from",
+          "from": "rule:R6f3a663fc5f2ef6d:duration_min",
+          "to": "evidence:R6f3a663fc5f2ef6d",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "proof:condition:duration_min:Rcb51d95acdbdea89",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "proof:condition:duration_min:Rcb51d95acdbdea89",
+          "type": "supports",
+          "from": "evidence:Rcb51d95acdbdea89",
+          "to": "condition:duration_min",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "required-source:INCIDENT_DB:Rcb51d95acdbdea89",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "required-source:INCIDENT_DB:Rcb51d95acdbdea89",
+          "type": "derived_from",
+          "from": "required:INCIDENT_DB",
+          "to": "evidence:Rcb51d95acdbdea89",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "required-source:POLICY_DB:R6f3a663fc5f2ef6d",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "required-source:POLICY_DB:R6f3a663fc5f2ef6d",
+          "type": "derived_from",
+          "from": "required:POLICY_DB",
+          "to": "evidence:R6f3a663fc5f2ef6d",
+          "review_status": "accepted"
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "required:CRM_CONTRACT_DB",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "required:CRM_CONTRACT_DB",
+          "type": "obligation",
+          "review_status": "accepted",
+          "state": "UNKNOWN",
+          "receipt_ids": []
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "required:INCIDENT_DB",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "required:INCIDENT_DB",
+          "type": "obligation",
+          "review_status": "accepted",
+          "state": "SUPPORT",
+          "receipt_ids": [
+            "tool-2"
+          ]
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "required:MAINTENANCE_CALENDAR",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "required:MAINTENANCE_CALENDAR",
+          "type": "obligation",
+          "review_status": "accepted",
+          "state": "SUPPORT",
+          "receipt_ids": [
+            "tool-3"
+          ]
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "required:POLICY_DB",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "required:POLICY_DB",
+          "type": "obligation",
+          "review_status": "accepted",
+          "state": "SUPPORT",
+          "receipt_ids": [
+            "tool-1"
+          ]
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      },
+      {
+        "object_id": "rule:R6f3a663fc5f2ef6d:duration_min",
+        "kind": "added",
+        "old_graph_version": 0,
+        "graph_version": 1,
+        "before": null,
+        "after": {
+          "id": "rule:R6f3a663fc5f2ef6d:duration_min",
+          "type": "rule",
+          "review_status": "accepted",
+          "condition": "duration_min",
+          "value": 60,
+          "active": true
+        },
+        "affected_claim_ids": [
+          "claim-eligibility"
+        ]
+      }
+    ],
+    "coverage": [
+      {
+        "source": "POLICY_DB",
+        "completed": true
+      },
+      {
+        "source": "INCIDENT_DB",
+        "completed": true
+      },
+      {
+        "source": "CRM_CONTRACT_DB",
+        "completed": false
+      },
+      {
+        "source": "MAINTENANCE_CALENDAR",
+        "completed": true
+      }
+    ],
+    "raw_claims": [
+      {
+        "kind": "eligibility",
+        "text": "Is this outage eligible for compensation?"
+      }
+    ],
+    "reviewed_records": {
+      "R6f3a663fc5f2ef6d": "Compensation requires an outage lasting at least 60 minutes."
+    },
+    "rule_expression": {
+      "op": "AND",
+      "conditions": [
+        "condition:duration_min",
+        "condition:no-maintenance-exclusion"
+      ]
+    },
+    "recommendation": "undetermined",
+    "scope_declaration": "仅覆盖合成故障补偿中的时长、工单期限、已配置维护例外及专属合同覆盖。未知规则仍需人工核实。",
+    "checker_b_ticket_audit": []
+  }
+}
