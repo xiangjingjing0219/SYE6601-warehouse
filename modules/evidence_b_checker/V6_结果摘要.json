@@ -1,0 +1,29 @@
+{
+  "source": "B-side offline integration run on 2026-11-18",
+  "acceptance": {
+    "passed": true,
+    "scope": "B predicates for five named offline acceptance scenarios; not complete project acceptance",
+    "checks": 11
+  },
+  "loopb_v2_data_audit": {
+    "passed": true,
+    "checks": 8,
+    "scope": "B-side source and selection boundary only; LoopB v2 self-reported full validation is not independently rerun",
+    "live_loop_executed": false
+  },
+  "validation": {
+    "date": "2026-11-18",
+    "B_unittest_passed": 148,
+    "A_unittest_passed": 57,
+    "test_team_with_bridge_passed": 187,
+    "offline_scenarios": 9,
+    "model_calls": 0,
+    "live_loop_executed": false,
+    "formal_accuracy": null,
+    "named_scenarios": 5,
+    "named_scenario_assertions": 11,
+    "industrial_local_checks": 26,
+    "insurance_local_checks": 62,
+    "exact_gold_matched": 11
+  }
+}
